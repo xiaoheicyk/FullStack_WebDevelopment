@@ -26,6 +26,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = /Users/CC/Documents/GitHub/FullStack_WebDevelopment/Assignment01/MovieShopWeb/MovieShopDb
 build_property._RazorSourceGeneratorDebug = 
 
+[/Users/CC/Documents/GitHub/FullStack_WebDevelopment/Assignment01/MovieShopWeb/MovieShopDb/Views/Genre/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvR2VucmUvSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/CC/Documents/GitHub/FullStack_WebDevelopment/Assignment01/MovieShopWeb/MovieShopDb/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
