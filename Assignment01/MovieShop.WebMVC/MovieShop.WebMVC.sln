@@ -2,6 +2,10 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieShopDbApp", "MovieShopDbApp\MovieShopDbApp.csproj", "{883C6558-8DA3-498F-BEB6-07CE0CA274E9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastruture", "Infrastruture\Infrastruture.csproj", "{2ADBCF46-E29D-4B79-8871-521F797A2758}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApplicationCore", "ApplicationCore\ApplicationCore.csproj", "{B64FA7CD-105A-4211-8607-8C95CA391CBA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +16,13 @@ Global
 		{883C6558-8DA3-498F-BEB6-07CE0CA274E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{883C6558-8DA3-498F-BEB6-07CE0CA274E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{883C6558-8DA3-498F-BEB6-07CE0CA274E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2ADBCF46-E29D-4B79-8871-521F797A2758}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2ADBCF46-E29D-4B79-8871-521F797A2758}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2ADBCF46-E29D-4B79-8871-521F797A2758}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2ADBCF46-E29D-4B79-8871-521F797A2758}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B64FA7CD-105A-4211-8607-8C95CA391CBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B64FA7CD-105A-4211-8607-8C95CA391CBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B64FA7CD-105A-4211-8607-8C95CA391CBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B64FA7CD-105A-4211-8607-8C95CA391CBA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -11,19 +11,6 @@
         "runtime": {
           "bin/placeholder/ApplicationCore.dll": {}
         }
-      },
-      "Infrastruture/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v8.0",
-        "dependencies": {
-          "ApplicationCore": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/Infrastruture.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Infrastruture.dll": {}
-        }
       }
     }
   },
@@ -32,16 +19,11 @@
       "type": "project",
       "path": "../ApplicationCore/ApplicationCore.csproj",
       "msbuildProject": "../ApplicationCore/ApplicationCore.csproj"
-    },
-    "Infrastruture/1.0.0": {
-      "type": "project",
-      "path": "../Infrastruture/Infrastruture.csproj",
-      "msbuildProject": "../Infrastruture/Infrastruture.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
-      "Infrastruture >= 1.0.0"
+      "ApplicationCore >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -50,11 +32,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/CC/Documents/GitHub/FullStack_WebDevelopment/Assignment01/MovieShop.WebMVC/MovieShopDbApp/MovieShopDbApp.csproj",
-      "projectName": "MovieShopDbApp",
-      "projectPath": "/Users/CC/Documents/GitHub/FullStack_WebDevelopment/Assignment01/MovieShop.WebMVC/MovieShopDbApp/MovieShopDbApp.csproj",
+      "projectUniqueName": "/Users/CC/Documents/GitHub/FullStack_WebDevelopment/Assignment01/MovieShop.WebMVC/Infrastruture/Infrastruture.csproj",
+      "projectName": "Infrastruture",
+      "projectPath": "/Users/CC/Documents/GitHub/FullStack_WebDevelopment/Assignment01/MovieShop.WebMVC/Infrastruture/Infrastruture.csproj",
       "packagesPath": "/Users/CC/.nuget/packages/",
-      "outputPath": "/Users/CC/Documents/GitHub/FullStack_WebDevelopment/Assignment01/MovieShop.WebMVC/MovieShopDbApp/obj/",
+      "outputPath": "/Users/CC/Documents/GitHub/FullStack_WebDevelopment/Assignment01/MovieShop.WebMVC/Infrastruture/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/CC/.nuget/NuGet/NuGet.Config"
@@ -69,8 +51,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "/Users/CC/Documents/GitHub/FullStack_WebDevelopment/Assignment01/MovieShop.WebMVC/Infrastruture/Infrastruture.csproj": {
-              "projectPath": "/Users/CC/Documents/GitHub/FullStack_WebDevelopment/Assignment01/MovieShop.WebMVC/Infrastruture/Infrastruture.csproj"
+            "/Users/CC/Documents/GitHub/FullStack_WebDevelopment/Assignment01/MovieShop.WebMVC/ApplicationCore/ApplicationCore.csproj": {
+              "projectPath": "/Users/CC/Documents/GitHub/FullStack_WebDevelopment/Assignment01/MovieShop.WebMVC/ApplicationCore/ApplicationCore.csproj"
             }
           }
         }
