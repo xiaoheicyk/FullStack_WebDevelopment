@@ -1,0 +1,16 @@
+/Users/CC/Documents/GitHub/FullStack_WebDevelopment/Assignment01/MovieShop/Infrastruture/bin/Debug/net8.0/Infrastruture.deps.json
+/Users/CC/Documents/GitHub/FullStack_WebDevelopment/Assignment01/MovieShop/Infrastruture/bin/Debug/net8.0/Infrastruture.dll
+/Users/CC/Documents/GitHub/FullStack_WebDevelopment/Assignment01/MovieShop/Infrastruture/bin/Debug/net8.0/Infrastruture.pdb
+/Users/CC/Documents/GitHub/FullStack_WebDevelopment/Assignment01/MovieShop/Infrastruture/bin/Debug/net8.0/ApplicationCore.dll
+/Users/CC/Documents/GitHub/FullStack_WebDevelopment/Assignment01/MovieShop/Infrastruture/bin/Debug/net8.0/ApplicationCore.pdb
+/Users/CC/Documents/GitHub/FullStack_WebDevelopment/Assignment01/MovieShop/Infrastruture/obj/Debug/net8.0/Infrastruture.csproj.AssemblyReference.cache
+/Users/CC/Documents/GitHub/FullStack_WebDevelopment/Assignment01/MovieShop/Infrastruture/obj/Debug/net8.0/Infrastruture.GeneratedMSBuildEditorConfig.editorconfig
+/Users/CC/Documents/GitHub/FullStack_WebDevelopment/Assignment01/MovieShop/Infrastruture/obj/Debug/net8.0/Infrastruture.AssemblyInfoInputs.cache
+/Users/CC/Documents/GitHub/FullStack_WebDevelopment/Assignment01/MovieShop/Infrastruture/obj/Debug/net8.0/Infrastruture.AssemblyInfo.cs
+/Users/CC/Documents/GitHub/FullStack_WebDevelopment/Assignment01/MovieShop/Infrastruture/obj/Debug/net8.0/Infrastruture.csproj.CoreCompileInputs.cache
+/Users/CC/Documents/GitHub/FullStack_WebDevelopment/Assignment01/MovieShop/Infrastruture/obj/Debug/net8.0/Infrastruture.sourcelink.json
+/Users/CC/Documents/GitHub/FullStack_WebDevelopment/Assignment01/MovieShop/Infrastruture/obj/Debug/net8.0/Infrastr.B3E05DA2.Up2Date
+/Users/CC/Documents/GitHub/FullStack_WebDevelopment/Assignment01/MovieShop/Infrastruture/obj/Debug/net8.0/Infrastruture.dll
+/Users/CC/Documents/GitHub/FullStack_WebDevelopment/Assignment01/MovieShop/Infrastruture/obj/Debug/net8.0/refint/Infrastruture.dll
+/Users/CC/Documents/GitHub/FullStack_WebDevelopment/Assignment01/MovieShop/Infrastruture/obj/Debug/net8.0/Infrastruture.pdb
+/Users/CC/Documents/GitHub/FullStack_WebDevelopment/Assignment01/MovieShop/Infrastruture/obj/Debug/net8.0/ref/Infrastruture.dll
