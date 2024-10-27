@@ -15,8 +15,9 @@ public class Movie
     public DateTime ReleaseDate { get; set; }
     public decimal Revenue { get; set; }
     public int Runtime { get; set; }
-    [Column()]
     public string? Tagline { get; set; }
-    
-    
+    public string? Title { get; set; }
+    public string? TmdbUrl { get; set; }
+    public string? UpdatedBy { get; set; }
+    public DateTime UpdatedDate { get; set; }
 }
