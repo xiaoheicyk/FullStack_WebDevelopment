@@ -9,6 +9,6 @@ public interface IRepository<T> where T : class
     int Delete(int id);
     IEnumerable<T> GetAll();
     T GetById(int id);
-    int GetCount(Expression<Func<T, bool>> predicate = null);
+    int GetCount(Expression<Func<T, bool>> filter = null);
     
 }
