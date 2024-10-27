@@ -4,7 +4,7 @@ using Infrastruture.Data;
 
 namespace Infrastruture.Repositories;
 
-public class MovieRepository:BaseRepository<Movie>,IMovieRepository
+public class MovieRepository : BaseRepository<Movie>, IMovieRepository
 {
     private readonly MovieShopDbContext _context;
     public MovieRepository(MovieShopDbContext c) : base(c)

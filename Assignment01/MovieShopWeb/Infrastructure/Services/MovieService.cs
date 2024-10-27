@@ -14,26 +14,31 @@ public class MovieService:IMovieService
     }
     public int AddMovie(Movie movie)
     {
-        throw new NotImplementedException();
+        return _repository.Insert(movie);
     }
 
     public int UpdateMovie(Movie movie, int id)
     {
-        throw new NotImplementedException();
+        if (movie.Id == id)
+        {
+            return _repository.Update(movie);
+        }
+
+        return 0;
     }
 
     public int DeleteMovie(int id)
     {
-        throw new NotImplementedException();
+        return _repository.Delete(id);
     }
 
     public IEnumerable<Movie> GetAllMovies()
     {
-        throw new NotImplementedException();
+        return _repository.GetAll();
     }
 
     public Movie GetMovieById(int id)
     {
-        throw new NotImplementedException();
+        return _repository.GetById(id);
     }
 }
