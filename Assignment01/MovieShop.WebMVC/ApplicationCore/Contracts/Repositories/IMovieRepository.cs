@@ -1,6 +1,11 @@
+using ApplicationCore.Entities;
+
 namespace ApplicationCore.Contracts.Repositories;
 
-public class IMovieRepository
+public interface IMovieRepository:IRepository<Movie>
 {
+    IEnumerable<Movie> GetTopRevenueMovies(int count=20);
+    
+    IEnumerable<Movie> GetMoviesWithGenre();
     
 }

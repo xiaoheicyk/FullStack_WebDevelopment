@@ -1,7 +1,14 @@
+using System.Linq.Expressions;
+
 namespace ApplicationCore.Contracts.Repositories;
 
-public class IRepository<T> where T : class
+public interface IRepository<T> where T : class
 {
-    
+    int Insert(T entity);
+    int Update(T entity);
+    int Delete(T entity);
+    IEnumerable<T> GetAll();
+    T GetById(int id);
+    int GetCount(Expression<Func<T, bool>> predicate = null);
     
 }
