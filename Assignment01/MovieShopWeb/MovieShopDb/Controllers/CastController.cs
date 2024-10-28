@@ -19,4 +19,9 @@ public class CastController : Controller
         var result = _service.GetAllCasts();
         return View(result);
     }
+
+    public IActionResult Create()
+    {
+        throw new NotImplementedException();
+    }
 }
