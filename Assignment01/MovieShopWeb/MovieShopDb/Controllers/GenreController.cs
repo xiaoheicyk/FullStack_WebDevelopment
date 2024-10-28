@@ -1,23 +1,21 @@
 using ApplicationCore.Contracts.Services;
-using Infrastruture.Data;
+using ApplicationCore.Entities;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MovieShopDb.Controllers;
 
 public class GenreController : Controller
 {
-    private readonly IGenreService _context;
-
-    public GenreController(IGenreService context)
+    private readonly IGenreService _genreService;
+    public GenreController(IGenreService service)
     {
-        _context = context;
+        _genreService = service;
     }
 
     public IActionResult Index()
     {
-        var result = _context.GetAllGenres();
+        var result = _genreService.GetAllGenres();
         return View(result);
-
     }
     
     

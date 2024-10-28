@@ -1,0 +1,22 @@
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model IEnumerable<ApplicationCore.Entities.Movie>;
+@{
+    ViewData["Title"] = "List of Movies";
+}
+<h1>@ViewData["Title"]</h1>
+<table class="table table-bordered table-hover">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model) {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Title</td>
+        </tr>
+    }
+    </tbody>
+</table>
