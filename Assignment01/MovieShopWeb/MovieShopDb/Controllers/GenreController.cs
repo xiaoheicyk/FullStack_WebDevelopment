@@ -18,5 +18,4 @@ public class GenreController : Controller
         return View(result);
     }
     
-    
 }

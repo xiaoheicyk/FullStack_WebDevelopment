@@ -1,4 +1,5 @@
 using ApplicationCore.Contracts.Services;
+using ApplicationCore.Entities;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MovieShopDb.Controllers;
@@ -6,15 +7,15 @@ namespace MovieShopDb.Controllers;
 public class MovieController : Controller
 {
     private readonly IMovieService _movieService;
-
-    public MovieController(IMovieService movieService)
+    public MovieController(IMovieService service)
     {
-        _movieService = movieService;
+        _movieService = service;
     }
-    // GET
+
     public IActionResult Index()
     {
         var result = _movieService.GetAllMovies();
         return View(result);
     }
+    
 }
