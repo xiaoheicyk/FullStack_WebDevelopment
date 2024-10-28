@@ -1,5 +1,6 @@
 using ApplicationCore.Contracts.Repositories;
 using ApplicationCore.Contracts.Services;
+using ApplicationCore.Entities;
 using Infrastruture.Data; 
 using Infrastruture.Repositories; 
 using Infrastruture.Services; 
@@ -21,6 +22,9 @@ builder.Services.AddScoped<IGenreService, GenreService>();
 
 builder.Services.AddScoped<IMovieRepository, MovieRepository>();
 builder.Services.AddScoped<IMovieService, MovieService>();
+
+builder.Services.AddScoped<ICastRepository, CastRepository>();
+builder.Services.AddScoped<ICastService, CastService>();
 
 var app = builder.Build();
 
