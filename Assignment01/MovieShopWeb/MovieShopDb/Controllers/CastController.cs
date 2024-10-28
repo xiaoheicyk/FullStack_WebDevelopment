@@ -20,8 +20,9 @@ public class CastController : Controller
         return View(result);
     }
 
+    [HttpGet]
     public IActionResult Create()
     {
-        throw new NotImplementedException();
+        return View();
     }
 }

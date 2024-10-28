@@ -17,5 +17,11 @@ public class GenreController : Controller
         var result = _genreService.GetAllGenres();
         return View(result);
     }
+
+    [HttpGet]
+    public IActionResult Create()
+    {
+        return View();
+    }
     
 }
