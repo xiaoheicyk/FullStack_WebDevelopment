@@ -23,12 +23,15 @@ namespace YourProjectName.MVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                var result = await _userService.LoginAsync(model);
-                if (result != null)
+                try
                 {
-                    return RedirectToAction("Index", "Home");
+                    var user = await _userService.LoginAsync(model);
+                    return RedirectToAction("Index", "Movies");
                 }
-                ModelState.AddModelError("", "Invalid login attempt.");
+                catch (UnauthorizedAccessException)
+                {
+                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                }
             }
             return View(model);
             

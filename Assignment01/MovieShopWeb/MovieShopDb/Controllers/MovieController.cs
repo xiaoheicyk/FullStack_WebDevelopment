@@ -26,4 +26,5 @@ public class MovieController : Controller
         return View(movieCards as IEnumerable<MovieCardModel>);
     }
     
+    
 }

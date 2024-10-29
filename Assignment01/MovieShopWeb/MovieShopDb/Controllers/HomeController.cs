@@ -19,15 +19,7 @@ namespace MovieShopDb.Controllers
 
         public IActionResult Index()
         {
-            var movies = _movieService.GetAllMovies();
-            var movieCards = movies.Select(movie => new MovieCardModel
-            {
-                MovieId = movie.Id,
-                Title = movie.Title, 
-                BackdropPath= movie.BackdropUrl,
-                ImdbUrl = movie.ImdbUrl
-            }).ToList();
-            return View(movieCards as IEnumerable<MovieCardModel>);
+            return RedirectToAction("Login", "User");
         }
 
     }

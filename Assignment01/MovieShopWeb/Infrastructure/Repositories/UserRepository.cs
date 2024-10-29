@@ -53,8 +53,18 @@ namespace Infrastructure.Repositories
 
         public async Task<User> GetUserByEmailAsync(string email)
         {
-            return await _dbContext.Users.FirstOrDefaultAsync(u => u.Email == email);
+            try
+            {
+                return await _dbContext.Users.FirstOrDefaultAsync(u => u.Email == email) ?? throw new InvalidOperationException();
+            }
+            catch (Exception ex)
+            {
+                // Log the exception message and stack trace for debugging purposes
+                Console.WriteLine($"Error fetching user by email: {ex.Message}");
+                throw; 
+            }
         }
+
         
         public async Task<User> InsertAsync(User user)
         {

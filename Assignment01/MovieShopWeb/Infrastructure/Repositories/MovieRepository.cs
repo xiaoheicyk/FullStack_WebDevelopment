@@ -17,5 +17,12 @@ public class MovieRepository : BaseRepository<Movie>, IMovieRepository
     {
         return await _context.Movies.OrderByDescending(m => m.Revenue).Take(number).ToListAsync();
     }
-    
+
+    public async Task<IEnumerable<Movie>> GetHighestGrossingMovies(int number = 10)
+    {
+        return await _context.Movies
+            .OrderByDescending(m => m.Revenue) // Replace 'Revenue' with the actual property name for gross revenue
+            .Take(number)
+            .ToListAsync();
+    }
 }

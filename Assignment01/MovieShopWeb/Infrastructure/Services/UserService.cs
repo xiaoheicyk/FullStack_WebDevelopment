@@ -29,7 +29,7 @@ public class UserService:IUserService
         var user = new User
         {
             Email = model.Email,
-            HashedPassword = HashPassword(model.Password) 
+            HashedPassword = model.Password
         };
 
         
@@ -40,7 +40,7 @@ public class UserService:IUserService
     {
         var user = await _repository.GetUserByEmailAsync(model.Email);
         
-        if (user == null || !VerifyPassword(model.Password, user.HashedPassword))
+        if (user == null || model.Password!= user.HashedPassword)
         {
             throw new UnauthorizedAccessException("Invalid email or password."); 
         }
@@ -50,18 +50,5 @@ public class UserService:IUserService
         
     }
     
-    private string HashPassword(string password)
-    {
-        using (var sha256 = SHA256.Create())
-        {
-            var bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
-            return Convert.ToBase64String(bytes);
-        }
-    }
-    
-    private bool VerifyPassword(string enteredPassword, string storedHashedPassword)
-    {
-        var hashedEnteredPassword = HashPassword(enteredPassword);
-        return hashedEnteredPassword == storedHashedPassword;
-    }
+
 }
