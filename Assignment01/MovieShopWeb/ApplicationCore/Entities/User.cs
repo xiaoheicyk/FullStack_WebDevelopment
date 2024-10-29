@@ -17,6 +17,6 @@ public class User
     public int IsLocked { get; set; }
     public string LastName { get; set; }
     public string PhoneNumber { get; set; }
-    public string? ProfileImageUrl { get; set; }
+    public string? ProfilePictureUrl { get; set; }
     public string? Salt { get; set; }
 }

@@ -11,7 +11,7 @@ namespace ApplicationCore.Contracts.Repositories
         
         Task<User> GetUserByEmailAsync(string email);
         
-        
+        Task<User> AddAsync(User user);
 
         
     }

@@ -1,6 +1,7 @@
 using ApplicationCore.Contracts.Repositories;
 using ApplicationCore.Contracts.Services;
 using ApplicationCore.Entities;
+using ApplicationCore.Models;
 
 namespace Infrastruture.Services;
 
@@ -12,27 +13,13 @@ public class AccountService:IAccountService
     {
         _accountRepository = accountRepository;
     }
-    public Task<User> RegisterAsync(string username, string password, string email)
+
+    public Task<User> LoginAsync(LoginModel model)
     {
         throw new NotImplementedException();
     }
 
-    public Task<User> LoginAsync(string username, string password)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task UpdateUserAsync(User user)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task DeleteUserAsync(int userId)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task<User> GetUserByIdAsync(int userId)
+    public Task<User> RegisterAsync(RegisterModel model)
     {
         throw new NotImplementedException();
     }

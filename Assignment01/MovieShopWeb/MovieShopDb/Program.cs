@@ -27,15 +27,23 @@ builder.Services.AddScoped<IMovieService, MovieService>();
 builder.Services.AddScoped<ICastRepository, CastRepository>();
 builder.Services.AddScoped<ICastService, CastService>();
 
+builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+
+builder.Services.AddScoped<IAccountService, AccountService>();
+builder.Services.AddScoped<IAccountRepository, AccountRepository>();
     
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
+if (app.Environment.IsDevelopment())
+{
+    app.UseDeveloperExceptionPage();
+}
+else
 {
     app.UseExceptionHandler("/Home/Error");
-    app.UseHsts(); 
+    app.UseHsts();
 }
 
 app.UseHttpsRedirection(); 

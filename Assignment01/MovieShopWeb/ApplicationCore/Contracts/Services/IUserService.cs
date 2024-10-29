@@ -6,6 +6,7 @@ namespace ApplicationCore.Contracts.Services
 {
     public interface IUserService
     {
-        Task<User> GetUserByIdAsync(int userId); 
+        Task<User> RegisterAsync(LoginModel model); 
+        Task<User> LoginAsync(LoginModel model);
     }
 }

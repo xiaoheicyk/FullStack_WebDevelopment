@@ -56,7 +56,12 @@ namespace Infrastructure.Repositories
             return await _dbContext.Users.FirstOrDefaultAsync(u => u.Email == email);
         }
         
-
-
+        public async Task<User> InsertAsync(User user)
+        {
+            await _dbContext.Users.AddAsync(user);
+            await _dbContext.SaveChangesAsync();    
+            return user;
+        }
+        
     }
 }
