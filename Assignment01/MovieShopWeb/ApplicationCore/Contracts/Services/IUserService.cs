@@ -6,9 +6,8 @@ namespace ApplicationCore.Contracts.Services
 {
     public interface IUserService
     {
-        Task<User> GetUserDetailsAsync(int userId); 
-        Task<IEnumerable<Purchase>> GetUserPurchasesAsync(int userId); 
-        Task AddUserFavoriteAsync(int userId, int movieId); 
-        Task RemoveUserFavoriteAsync(int userId, int movieId); 
+        Task<User> GetUserByIdAsync(int userId); 
+        Task<List<Purchase>> GetUserPurchasesAsync(int userId); 
+        
     }
 }

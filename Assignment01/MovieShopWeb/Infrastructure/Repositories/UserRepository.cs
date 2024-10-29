@@ -21,6 +21,8 @@ namespace Infrastructure.Repositories
             return await _dbContext.Users.FindAsync(id);
         }
 
+
+
         public async Task<IEnumerable<User>> GetAllAsync()
         {
             return await _dbContext.Users.ToListAsync();
@@ -53,5 +55,14 @@ namespace Infrastructure.Repositories
         {
             return await _dbContext.Users.FirstOrDefaultAsync(u => u.Email == email);
         }
+
+        public async Task<List<Purchase>> GetUserPurchaseAsync(int userId)
+        {
+            return await _dbContext.Purchases
+                .Where(p => p.UserId == userId)
+                .ToListAsync();
+        }
+
+
     }
 }

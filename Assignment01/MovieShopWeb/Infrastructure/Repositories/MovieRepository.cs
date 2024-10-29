@@ -17,9 +17,5 @@ public class MovieRepository : BaseRepository<Movie>, IMovieRepository
     {
         return await _context.Movies.OrderByDescending(m => m.Revenue).Take(number).ToListAsync();
     }
-
-    public async Task<IEnumerable<Movie>> GetMoviesWithGenre()
-    {
-        return await _context.Movies.Include(m=>m).ToListAsync();
-    }
+    
 }

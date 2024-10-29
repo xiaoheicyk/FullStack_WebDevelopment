@@ -14,17 +14,22 @@ public class CastService:ICastService
     }
     public int AddCast(Cast cast)
     {
-        throw new NotImplementedException();
+        return _repository.Insert(cast);
     }
 
     public int UpdateCast(Cast cast, int id)
     {
-        throw new NotImplementedException();
+        if (cast.Id == id)
+        {
+            return _repository.Update(cast);
+        }
+
+        return 0;
     }
 
     public int DeleteCast(int id)
     {
-        throw new NotImplementedException();
+        return _repository.Delete(id);  
     }
 
     public IEnumerable<Cast> GetAllCasts()
@@ -34,6 +39,6 @@ public class CastService:ICastService
 
     public Cast GetCastById(int id)
     {
-        throw new NotImplementedException();
+        return _repository.GetById(id);
     }
 }
