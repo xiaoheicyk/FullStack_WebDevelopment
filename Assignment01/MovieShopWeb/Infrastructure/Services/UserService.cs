@@ -18,11 +18,7 @@ public class UserService:IUserService
     {
         return await _repository.GetByIdAsync(userId);
     }
-
-    public async Task<List<Purchase>> GetUserPurchasesAsync(int userId)
-    {
-        return await _repository.GetUserPurchaseAsync(userId);
-    }
+    
 
 
 }

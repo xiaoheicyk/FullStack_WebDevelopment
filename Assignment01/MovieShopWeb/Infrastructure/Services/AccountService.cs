@@ -1,3 +1,4 @@
+using ApplicationCore.Contracts.Repositories;
 using ApplicationCore.Contracts.Services;
 using ApplicationCore.Entities;
 
@@ -5,7 +6,12 @@ namespace Infrastruture.Services;
 
 public class AccountService:IAccountService
 {
-    private IAccountRep
+    private IAccountRepository _accountRepository;
+
+    public AccountService(IAccountRepository accountRepository)
+    {
+        _accountRepository = accountRepository;
+    }
     public Task<User> RegisterAsync(string username, string password, string email)
     {
         throw new NotImplementedException();

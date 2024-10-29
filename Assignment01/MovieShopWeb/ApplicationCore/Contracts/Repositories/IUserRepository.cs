@@ -11,7 +11,6 @@ namespace ApplicationCore.Contracts.Repositories
         
         Task<User> GetUserByEmailAsync(string email);
         
-        Task<List<Purchase>> GetUserPurchaseAsync(int userId);
         
 
         

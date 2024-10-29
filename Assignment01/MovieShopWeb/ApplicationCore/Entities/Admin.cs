@@ -1,6 +1,6 @@
 namespace ApplicationCore.Entities;
 
-public class Account: User
+public class Admin: User
 {
     public bool IsAdmin { get; set; }
 }
