@@ -44,5 +44,12 @@ namespace Infrastruture.Services
         {
             return await _repository.GetByIdAsync(id);
         }
+
+        public async Task<Cast> GetCastDetailsAsync(int id)
+        {
+            var cast = await _repository.GetByIdAsync(id); 
+            return cast;
+
+        }
     }
 }

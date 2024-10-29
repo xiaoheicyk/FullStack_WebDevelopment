@@ -15,5 +15,6 @@ namespace ApplicationCore.Contracts.Services
         Task<IEnumerable<Cast>> GetAllCastsAsync();
 
         Task<Cast> GetCastByIdAsync(int id);
+        Task<Cast> GetCastDetailsAsync(int id);
     }
 }

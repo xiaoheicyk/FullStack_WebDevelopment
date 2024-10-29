@@ -8,8 +8,11 @@ namespace ApplicationCore.Contracts.Services
     {
         Task<int> AddMovieAsync(Movie movie);
         Task<int> DeleteMovieAsync(int id);
+        Task<int> UpdateMovieAsync(Movie movie,int Id);
         Task<IEnumerable<Movie>> GetAllMoviesAsync();
         Task<Movie> GetMovieByIdAsync(int id);
-        Task<IEnumerable<Movie>> GetTopRevenueMoviesAsync(int number); // New method for top revenue movies
+        Task<Movie> GetMovieDetailsAsync(int id);
+        Task<IEnumerable<Movie>> GetTopRevenueMoviesAsync(int number);
+        
     }
 }

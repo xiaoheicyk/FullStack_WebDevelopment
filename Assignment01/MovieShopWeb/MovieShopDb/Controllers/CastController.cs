@@ -35,5 +35,17 @@ namespace MovieShopDb.Controllers
         {
             return View();
         }
+
+        public async Task<IActionResult> Details(int id)
+        {
+            var cast = await _service.GetCastDetailsAsync(id);
+            if (cast == null)
+            {
+                return NotFound();
+            }
+
+            return View(cast);
+        }
+
     }
 }

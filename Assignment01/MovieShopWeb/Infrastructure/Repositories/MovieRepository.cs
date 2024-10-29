@@ -17,7 +17,10 @@ namespace Infrastructure.Repositories
             _dbContext = dbContext;
         }
 
-        public async Task<IEnumerable<Movie>> GetTopRevenueMovies(int number = 20)
+
+
+
+        public async Task<IEnumerable<Movie>> GetTopRevenueMoviesAsync(int number = 20)
         {
             return await _dbContext.Movies
                 .OrderByDescending(m => m.Revenue) 
@@ -25,35 +28,9 @@ namespace Infrastructure.Repositories
                 .ToListAsync();
         }
 
-        public async Task<IEnumerable<Movie>> GetHighestGrossingMovies(int number = 10)
+        public async Task<Movie> GetMovieByIdAsync(int id)
         {
-            return await _dbContext.Movies
-                .OrderByDescending(m => m.Revenue) 
-                .Take(number)
-                .ToListAsync();
-        }
-
-        public async Task<Movie> GetMovieById(int id)
-        {
-            return await _dbContext.Movies
-                .FirstOrDefaultAsync(m => m.Id == id);
-        }
-
-        public async Task<int> AddAsync(Movie movie)
-        {
-            await _dbContext.Movies.AddAsync(movie);
-            return await _dbContext.SaveChangesAsync(); 
-        }
-
-        public async Task<int> DeleteAsync(int id)
-        {
-            var movie = await _dbContext.Movies.FindAsync(id);
-            if (movie != null)
-            {
-                _dbContext.Movies.Remove(movie);
-                return await _dbContext.SaveChangesAsync();
-            }
-            return 0; 
+            return await _dbContext.Movies.FindAsync(id);
         }
     }
 }

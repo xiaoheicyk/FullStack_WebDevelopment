@@ -1,43 +1,59 @@
 using ApplicationCore.Contracts.Repositories;
-using ApplicationCore.Contracts.Services;
 using ApplicationCore.Entities;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using ApplicationCore.Contracts.Services;
 
 namespace Infrastructure.Services
 {
-    public class MovieService : IMovieService
+    public class MovieService :IMovieService
     {
-        private readonly IMovieRepository _movieRepository;
+        private readonly IMovieRepository _repository;
 
-        public MovieService(IMovieRepository movieRepository)
+        public MovieService(IMovieRepository repo)
         {
-            _movieRepository = movieRepository;
+            _repository = repo;
         }
 
-        public async Task<int> AddMovieAsync(Movie movie)
+
+        public Task<int> AddMovieAsync(Movie movie)
         {
-            return await _movieRepository.AddAsync(movie);
+            throw new NotImplementedException();
         }
 
-        public async Task<int> DeleteMovieAsync(int id)
+        public Task<int> DeleteMovieAsync(int id)
         {
-            return await _movieRepository.DeleteAsync(id);
+            return _repository.DeleteAsync(id);
         }
 
-        public async Task<IEnumerable<Movie>> GetAllMoviesAsync()
+        public async Task<int> UpdateMovieAsync(Movie movie,int Id)
         {
-            return await _movieRepository.GetAllAsync();
+            if (movie.Id == Id)
+            {
+                return await _repository.UpdateAsync(movie);
+            }
+
+            return 0;
         }
 
-        public async Task<Movie> GetMovieByIdAsync(int id)
+        public Task<IEnumerable<Movie>> GetAllMoviesAsync()
         {
-            return await _movieRepository.GetMovieById(id);
+            return _repository.GetAllAsync();
         }
 
-        public async Task<IEnumerable<Movie>> GetTopRevenueMoviesAsync(int number)
+        public Task<Movie> GetMovieByIdAsync(int id)
         {
-            return await _movieRepository.GetTopRevenueMovies(number);
+            return _repository.GetByIdAsync(id);
+        }
+
+        public Task<Movie> GetMovieDetailsAsync(int id)
+        {
+            return _repository.GetMovieByIdAsync(id);
+        }
+
+        public Task<IEnumerable<Movie>> GetTopRevenueMoviesAsync(int number)
+        {
+            return _repository.GetTopRevenueMoviesAsync(number);
         }
     }
 }

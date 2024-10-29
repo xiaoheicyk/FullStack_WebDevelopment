@@ -1,5 +1,5 @@
 @model ApplicationCore.Models.MovieCardModel
 
 <div class="card">
-    <a href=@Model.ImdbUrl><img src="@Model.BackdropPath" class="card-img-top" alt="@Model.Title" style="height: 200px; object-fit: cover;"></a>
+    <a href=@Url.Action("Details","Movie",new{id=Model.MovieId})><img src="@Model.BackdropPath" class="card-img-top" alt="@Model.Title" style="height: 200px; object-fit: cover;"></a>
 </div>
