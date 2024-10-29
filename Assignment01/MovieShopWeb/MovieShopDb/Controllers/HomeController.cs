@@ -1,31 +1,34 @@
-using System.Diagnostics;
+using ApplicationCore.Contracts.Services; // 引入电影服务接口
 using Microsoft.AspNetCore.Mvc;
-using MovieShopDb.Models;
+using Microsoft.Extensions.Logging; // 引入日志记录
+using ApplicationCore.Models; // 引入电影模型
+using System.Diagnostics;
 
-namespace MovieShopDb.Controllers;
-
-public class HomeController : Controller
+namespace MovieShopDb.Controllers
 {
-    private readonly ILogger<HomeController> _logger;
-
-    public HomeController(ILogger<HomeController> logger)
+    public class HomeController : Controller
     {
-        _logger = logger;
-    }
+        private readonly ILogger<MovieController> _logger;
+        private readonly IMovieService _movieService;
 
-    public IActionResult Index()
-    {
-        return View();
-    }
+        public HomeController(ILogger<MovieController> logger, IMovieService movieService)
+        {
+            _logger = logger;
+            _movieService = movieService;
+        }
 
-    public IActionResult Privacy()
-    {
-        return View();
-    }
+        public IActionResult Index()
+        {
+            var movies = _movieService.GetAllMovies();
+            var movieCards = movies.Select(movie => new MovieCardModel
+            {
+                MovieId = movie.Id,
+                Title = movie.Title, 
+                BackdropPath= movie.BackdropUrl,
+                ImdbUrl = movie.ImdbUrl
+            }).ToList();
+            return View(movieCards as IEnumerable<MovieCardModel>);
+        }
 
-    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-    public IActionResult Error()
-    {
-        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
 }

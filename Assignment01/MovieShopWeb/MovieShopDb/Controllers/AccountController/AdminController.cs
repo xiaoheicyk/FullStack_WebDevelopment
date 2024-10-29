@@ -4,7 +4,7 @@ namespace YourProjectName.MVC.Controllers
 {
     public class AdminController : Controller
     {
-        public IActionResult Dashboard()
+        public IActionResult Index()
         {
             return View();
         }
