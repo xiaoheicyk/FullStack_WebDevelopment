@@ -1,12 +1,22 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace MovieShopDb.Controllers;
-
-public class AdminController : Controller
+namespace YourProjectName.MVC.Controllers
 {
-    // GET
-    public IActionResult Index()
+    public class AdminController : Controller
     {
-        return View();
+        public IActionResult Dashboard()
+        {
+            return View();
+        }
+
+        public IActionResult ManageUsers()
+        {
+            return View();
+        }
+
+        public IActionResult ManageMovies()
+        {
+            return View();
+        }
     }
 }
