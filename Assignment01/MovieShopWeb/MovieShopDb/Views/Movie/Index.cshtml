@@ -1,5 +1,5 @@
 @using Microsoft.AspNetCore.Mvc.TagHelpers
-@model IEnumerable<ApplicationCore.Entities.Movie>;
+@model IEnumerable<ApplicationCore.Models.MovieCardModel>;
 @{
     ViewData["Title"] = "List of Movies";
 }
@@ -9,11 +9,9 @@
     <div class="row">
         @foreach (var movie in Model)
         {
-        <div class="col-md-2 mb-4">
-            <div class="card">
-                <a href=@movie.ImdbUrl><img src="@movie.BackdropUrl" class="card-img-top" alt="@movie.Title" style="height: 200px; object-fit: cover;"></a>
+            <div class="col-md-3 mb-4">
+                @Html.Partial("_MovieCard",movie)
             </div>
-        </div>
         
         }
     </div>

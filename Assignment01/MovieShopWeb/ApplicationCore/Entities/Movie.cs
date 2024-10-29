@@ -4,7 +4,7 @@ namespace ApplicationCore.Entities;
 
 public class Movie
 {
-    public int? Id { get; set; }
+    public int Id { get; set; }
     public string? BackdropUrl { get; set; }
     public decimal? Budget { get; set; }
     public string? CreatedBy { get; set; }

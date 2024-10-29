@@ -1,5 +1,6 @@
 using ApplicationCore.Contracts.Repositories;
 using ApplicationCore.Contracts.Services;
+using ApplicationCore.Models;
 using Infrastruture.Data;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,8 +17,15 @@ public class CastController : Controller
     // GET
     public IActionResult Index()
     {
-        var result = _service.GetAllCasts();
-        return View(result);
+        var casts = _service.GetAllCasts();
+        var castCards = casts.Select(cast => new CastCardModel
+        {
+            Id = cast.Id,
+            Name = cast.Name,
+            ProfilePath = cast.ProfilePath,
+            TmdbUrl = cast.TmdbUrl
+        }).ToList();
+        return View(castCards as IEnumerable<CastCardModel>);
     }
 
     [HttpGet]
