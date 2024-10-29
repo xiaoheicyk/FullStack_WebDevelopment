@@ -39,15 +39,15 @@ public class MovieController : Controller
         return View(movieCards as IEnumerable<MovieCardModel>);
     }
     
-    public async Task<IActionResult> GetById(int id)
+    public async Task<IActionResult> SearchById(int id)
     {
-        var cast = await _movieService.GetMovieByIdAsync(id);
-        if (cast == null)
+        var movie = await _movieService.GetMovieDetailsAsync(id);
+        if (movie == null)
         {
             return NotFound();
         }
 
-        return View(cast);
+        return View("MovieDetails",movie);
     }
 
 
@@ -55,13 +55,13 @@ public class MovieController : Controller
     
     public async Task<IActionResult> Details(int id)
          {
-             var cast = await _movieService.GetMovieDetailsAsync(id);
-             if (cast == null)
+             var movie = await _movieService.GetMovieDetailsAsync(id);
+             if (movie == null)
              {
                  return NotFound();
              }
      
-             return View(cast);
+             return View("MovieDetails",movie);
          }
     
     

@@ -43,7 +43,7 @@ namespace Infrastructure.Services
 
         public Task<Movie> GetMovieByIdAsync(int id)
         {
-            return _repository.GetByIdAsync(id);
+            return _repository.GetMovieByIdAsync(id);
         }
 
         public Task<Movie> GetMovieDetailsAsync(int id)
