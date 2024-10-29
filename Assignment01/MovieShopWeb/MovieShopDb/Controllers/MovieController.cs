@@ -38,6 +38,23 @@ public class MovieController : Controller
         }).ToList();
         return View(movieCards as IEnumerable<MovieCardModel>);
     }
+
+    public async Task<IActionResult> GetMovieById(int id)
+    {
+        Console.WriteLine($"Searching for movie with ID: {id}");
+    
+        var movie = await _movieService.GetMovieByIdAsync(id);
+    
+        if (movie == null)
+        {
+            Console.WriteLine("Movie not found.");
+            return NotFound();
+        }
+
+        return View(movie);
+    }
+    
+    
     
     
 }
