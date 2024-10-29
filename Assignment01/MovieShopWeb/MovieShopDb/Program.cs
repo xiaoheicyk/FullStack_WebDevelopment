@@ -1,6 +1,7 @@
 using ApplicationCore.Contracts.Repositories;
 using ApplicationCore.Contracts.Services;
 using ApplicationCore.Entities;
+using Infrastructure.Repositories;
 using Infrastruture.Data; 
 using Infrastruture.Repositories; 
 using Infrastruture.Services; 
@@ -26,6 +27,8 @@ builder.Services.AddScoped<IMovieService, MovieService>();
 builder.Services.AddScoped<ICastRepository, CastRepository>();
 builder.Services.AddScoped<ICastService, CastService>();
 
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+    
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
