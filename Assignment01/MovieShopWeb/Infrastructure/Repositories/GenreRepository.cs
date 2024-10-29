@@ -1,5 +1,6 @@
 using ApplicationCore.Contracts.Repositories;
 using ApplicationCore.Entities;
+using Infrastructure.Repositories;
 using Infrastruture.Data;
 
 namespace Infrastruture.Repositories;

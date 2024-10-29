@@ -1,76 +1,76 @@
 using ApplicationCore.Contracts.Services;
 using ApplicationCore.Entities;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
-namespace MovieShopDb.Controllers;
-
-public class GenreController : Controller
+namespace MovieShopDb.Controllers
 {
-    private readonly IGenreService _genreService;
-    public GenreController(IGenreService service)
+    public class GenreController : Controller
     {
-        _genreService = service;
-    }
+        private readonly IGenreService _genreService;
 
-    public IActionResult Index()
-    {
-        var result = _genreService.GetAllGenres();
-        return View(result);
-    }
-
-    [HttpGet]
-    public IActionResult Create()
-    {
-        return View();
-    }
-
-    [HttpPost]
-    public IActionResult Create(Genre genre)
-    {
-        if (ModelState.IsValid)
+        public GenreController(IGenreService service)
         {
-            _genreService.AddGenre(genre);
-            return RedirectToAction("Index");
+            _genreService = service;
         }
-        return View(genre);
-    }
 
-    [HttpGet]
-    public IActionResult Edit(int id)
-    {
-        var result = _genreService.GetGenreById(id);
-        return View(result);
-    }
-
-    [HttpPost]
-    public IActionResult Edit(Genre genre)
-    {
-        if (ModelState.IsValid)
+        public async Task<IActionResult> Index()
         {
-            _genreService.UpdateGenre(genre, genre.Id);
-            return RedirectToAction("Index");
+            var result = await _genreService.GetAllGenresAsync();
+            return View(result);
         }
-        return View(genre);
-    }
 
-    [HttpGet]
-    public IActionResult Delete(int id)
-    {
-        var result = _genreService.GetGenreById(id);
-        return View(result);
-    }
-
-    [HttpPost]
-    public IActionResult Delete(Genre genre)
-    {
-        if (ModelState.IsValid)
+        [HttpGet]
+        public IActionResult Create()
         {
-            _genreService.DeleteGenre(genre.Id);
-            return RedirectToAction("Index");
+            return View();
         }
-        return View(genre);
+
+        [HttpPost]
+        public async Task<IActionResult> Create(Genre genre)
+        {
+            if (ModelState.IsValid)
+            {
+                await _genreService.AddGenreAsync(genre);
+                return RedirectToAction("Index");
+            }
+            return View(genre);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Edit(int id)
+        {
+            var result = await _genreService.GetGenreByIdAsync(id);
+            return View(result);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(Genre genre)
+        {
+            if (ModelState.IsValid)
+            {
+                await _genreService.UpdateGenreAsync(genre, genre.Id);
+                return RedirectToAction("Index");
+            }
+            return View(genre);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var result = await _genreService.GetGenreByIdAsync(id);
+            return View(result);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Delete(Genre genre)
+        {
+            if (ModelState.IsValid)
+            {
+                await _genreService.DeleteGenreAsync(genre.Id);
+                return RedirectToAction("Index");
+            }
+            return View(genre);
+        }
     }
-    
-    
-    
 }

@@ -1,16 +1,19 @@
 using ApplicationCore.Entities;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
-namespace ApplicationCore.Contracts.Services;
-
-public interface ICastService
+namespace ApplicationCore.Contracts.Services
 {
-    int AddCast(Cast cast);
-    
-    int UpdateCast(Cast cast,int id);
-    
-    int DeleteCast(int id);
-    
-    IEnumerable<Cast> GetAllCasts();
-    
-    Cast GetCastById(int id);
+    public interface ICastService
+    {
+        Task<int> AddCastAsync(Cast cast);
+
+        Task<int> UpdateCastAsync(Cast cast, int id);
+
+        Task<int> DeleteCastAsync(int id);
+
+        Task<IEnumerable<Cast>> GetAllCastsAsync();
+
+        Task<Cast> GetCastByIdAsync(int id);
+    }
 }

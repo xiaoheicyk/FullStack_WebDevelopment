@@ -2,6 +2,7 @@ using ApplicationCore.Contracts.Repositories;
 using ApplicationCore.Contracts.Services;
 using ApplicationCore.Entities;
 using Infrastructure.Repositories;
+using Infrastructure.Services;
 using Infrastruture.Data; 
 using Infrastruture.Repositories; 
 using Infrastruture.Services; 

@@ -1,58 +1,61 @@
 using System.Linq.Expressions;
 using ApplicationCore.Contracts.Repositories;
+using Infrastructure.Repositories;
 using Infrastruture.Data;
 using Microsoft.EntityFrameworkCore;
 
-namespace Infrastruture.Repositories;
-
-public class BaseRepository<T>:IRepository<T> where T : class
+namespace Infrastructure.Repositories
 {
-    private readonly MovieShopDbContext _context;
+    public class BaseRepository<T> : IRepository<T> where T : class
+    {
+        private readonly MovieShopDbContext _context;
 
-    public BaseRepository(MovieShopDbContext c)
-    {
-        _context = c;
-    }
-    public int Insert(T entity)
-    {
-        _context.Set<T>().Add(entity);
-        return _context.SaveChanges();
-    }
-
-    public int Update(T entity)
-    {
-        _context.Entry(entity).State = EntityState.Modified;
-        return _context.SaveChanges();
-    }
-
-    public int Delete(int id)
-    {
-        var entity = GetById(id);
-        if (entity != null)
+        public BaseRepository(MovieShopDbContext context)
         {
-            _context.Set<T>().Remove(entity);
-            return _context.SaveChanges();
+            _context = context;
         }
 
-        return 0;
-    }
-
-    public IEnumerable<T> GetAll()
-    {
-        return _context.Set<T>().ToList();
-    }
-
-    public T GetById(int id)
-    {
-        return _context.Set<T>().Find(id);
-    }
-
-    public int GetCount(Expression<Func<T, bool>> filter)
-    {
-        if (filter != null)
+        public async Task<int> InsertAsync(T entity)
         {
-            return _context.Set<T>().Count(filter);
+            await _context.Set<T>().AddAsync(entity);
+            return await _context.SaveChangesAsync();
         }
-        return _context.Set<T>().Count();
+
+        public async Task<int> UpdateAsync(T entity)
+        {
+            _context.Entry(entity).State = EntityState.Modified;
+            return await _context.SaveChangesAsync();
+        }
+
+        public async Task<int> DeleteAsync(int id)
+        {
+            var entity = await GetByIdAsync(id);
+            if (entity != null)
+            {
+                _context.Set<T>().Remove(entity);
+                return await _context.SaveChangesAsync();
+            }
+
+            return 0;
+        }
+
+        public async Task<IEnumerable<T>> GetAllAsync()
+        {
+            return await _context.Set<T>().ToListAsync();
+        }
+
+        public async Task<T> GetByIdAsync(int id)
+        {
+            return await _context.Set<T>().FindAsync(id);
+        }
+
+        public async Task<int> GetCountAsync(Expression<Func<T, bool>> filter = null)
+        {
+            if (filter != null)
+            {
+                return await _context.Set<T>().CountAsync(filter);
+            }
+            return await _context.Set<T>().CountAsync();
+        }
     }
 }

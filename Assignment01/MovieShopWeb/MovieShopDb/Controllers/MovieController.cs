@@ -13,14 +13,27 @@ public class MovieController : Controller
         _movieService = service;
     }
 
-    public IActionResult Index()
+    public async Task<IActionResult> Index()
     {
-        var movies = _movieService.GetAllMovies();
+        var movies =await _movieService.GetAllMoviesAsync();
         var movieCards = movies.Select(movie => new MovieCardModel
         {
             MovieId = movie.Id,
             Title = movie.Title, 
             BackdropPath= movie.BackdropUrl,
+            ImdbUrl = movie.ImdbUrl
+        }).ToList();
+        return View(movieCards as IEnumerable<MovieCardModel>);
+    }
+    
+    public async Task<IActionResult> TopRevenueMovies(int number = 20)
+    {
+        var movies = await _movieService.GetTopRevenueMoviesAsync(number);
+        var movieCards = movies.Select(movie => new MovieCardModel
+        {
+            MovieId = movie.Id,
+            Title = movie.Title,
+            BackdropPath = movie.BackdropUrl,
             ImdbUrl = movie.ImdbUrl
         }).ToList();
         return View(movieCards as IEnumerable<MovieCardModel>);

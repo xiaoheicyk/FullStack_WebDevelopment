@@ -1,44 +1,47 @@
 using ApplicationCore.Contracts.Repositories;
 using ApplicationCore.Contracts.Services;
 using ApplicationCore.Entities;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
-namespace Infrastruture.Services;
-
-public class GenreService:IGenreService
+namespace Infrastruture.Services
 {
-    private IGenreRepository _repository;
+    public class GenreService : IGenreService
+    {
+        private readonly IGenreRepository _repository;
 
-    public GenreService(IGenreRepository repo)
-    {
-        _repository = repo;
-    }
-    public int AddGenre(Genre genre)
-    {
-        return _repository.Insert(genre);
-    }
-
-    public int UpdateGenre(Genre genre,int id)
-    {
-        if (id == genre.Id)
+        public GenreService(IGenreRepository repo)
         {
-            return _repository.Update(genre);
+            _repository = repo;
         }
 
-        return 0;
-    }
+        public async Task<int> AddGenreAsync(Genre genre)
+        {
+            return await _repository.InsertAsync(genre);
+        }
 
-    public int DeleteGenre(int id)
-    {
-        return _repository.Delete(id);
-    }
+        public async Task<int> UpdateGenreAsync(Genre genre, int id)
+        {
+            if (id == genre.Id)
+            {
+                return await _repository.UpdateAsync(genre);
+            }
+            return 0;
+        }
 
-    public IEnumerable<Genre> GetAllGenres()
-    {
-        return _repository.GetAll();
-    }
+        public async Task<int> DeleteGenreAsync(int id)
+        {
+            return await _repository.DeleteAsync(id);
+        }
 
-    public Genre GetGenreById(int id)
-    {
-        return _repository.GetById(id);
+        public async Task<IEnumerable<Genre>> GetAllGenresAsync()
+        {
+            return await _repository.GetAllAsync();
+        }
+
+        public async Task<Genre> GetGenreByIdAsync(int id)
+        {
+            return await _repository.GetByIdAsync(id);
+        }
     }
 }

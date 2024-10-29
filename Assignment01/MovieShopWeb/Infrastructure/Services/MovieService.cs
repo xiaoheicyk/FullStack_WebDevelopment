@@ -1,44 +1,43 @@
 using ApplicationCore.Contracts.Repositories;
 using ApplicationCore.Contracts.Services;
 using ApplicationCore.Entities;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
-namespace Infrastruture.Services;
-
-public class MovieService:IMovieService
+namespace Infrastructure.Services
 {
-    private IMovieRepository _repository;
+    public class MovieService : IMovieService
+    {
+        private readonly IMovieRepository _movieRepository;
 
-    public MovieService(IMovieRepository repo)
-    {
-        _repository = repo;
-    }
-    public int AddMovie(Movie movie)
-    {
-        return _repository.Insert(movie);
-    }
-
-    public int UpdateMovie(Movie movie, int id)
-    {
-        if (movie.Id == id)
+        public MovieService(IMovieRepository movieRepository)
         {
-            return _repository.Update(movie);
+            _movieRepository = movieRepository;
         }
 
-        return 0;
-    }
+        public async Task<int> AddMovieAsync(Movie movie)
+        {
+            return await _movieRepository.AddAsync(movie);
+        }
 
-    public int DeleteMovie(int id)
-    {
-        return _repository.Delete(id);
-    }
+        public async Task<int> DeleteMovieAsync(int id)
+        {
+            return await _movieRepository.DeleteAsync(id);
+        }
 
-    public IEnumerable<Movie> GetAllMovies()
-    {
-        return _repository.GetAll();
-    }
+        public async Task<IEnumerable<Movie>> GetAllMoviesAsync()
+        {
+            return await _movieRepository.GetAllAsync();
+        }
 
-    public Movie GetMovieById(int id)
-    {
-        return _repository.GetById(id);
+        public async Task<Movie> GetMovieByIdAsync(int id)
+        {
+            return await _movieRepository.GetMovieById(id);
+        }
+
+        public async Task<IEnumerable<Movie>> GetTopRevenueMoviesAsync(int number)
+        {
+            return await _movieRepository.GetTopRevenueMovies(number);
+        }
     }
 }

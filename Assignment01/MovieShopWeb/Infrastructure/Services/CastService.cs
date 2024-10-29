@@ -1,44 +1,48 @@
 using ApplicationCore.Contracts.Repositories;
 using ApplicationCore.Contracts.Services;
 using ApplicationCore.Entities;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
-namespace Infrastruture.Services;
-
-public class CastService:ICastService
+namespace Infrastruture.Services
 {
-    private ICastRepository _repository;
+    public class CastService : ICastService
+    {
+        private readonly ICastRepository _repository;
 
-    public CastService(ICastRepository repo)
-    {
-        _repository = repo;
-    }
-    public int AddCast(Cast cast)
-    {
-        return _repository.Insert(cast);
-    }
-
-    public int UpdateCast(Cast cast, int id)
-    {
-        if (cast.Id == id)
+        public CastService(ICastRepository repo)
         {
-            return _repository.Update(cast);
+            _repository = repo;
         }
 
-        return 0;
-    }
+        public async Task<int> AddCastAsync(Cast cast)
+        {
+            return await _repository.InsertAsync(cast);
+        }
 
-    public int DeleteCast(int id)
-    {
-        return _repository.Delete(id);  
-    }
+        public async Task<int> UpdateCastAsync(Cast cast, int id)
+        {
+            if (cast.Id == id)
+            {
+                return await _repository.UpdateAsync(cast);
+            }
 
-    public IEnumerable<Cast> GetAllCasts()
-    {
-        return _repository.GetAll();
-    }
+            return 0;
+        }
 
-    public Cast GetCastById(int id)
-    {
-        return _repository.GetById(id);
+        public async Task<int> DeleteCastAsync(int id)
+        {
+            return await _repository.DeleteAsync(id);  
+        }
+
+        public async Task<IEnumerable<Cast>> GetAllCastsAsync()
+        {
+            return await _repository.GetAllAsync();
+        }
+
+        public async Task<Cast> GetCastByIdAsync(int id)
+        {
+            return await _repository.GetByIdAsync(id);
+        }
     }
 }
