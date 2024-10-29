@@ -1,6 +1,7 @@
 using ApplicationCore.Contracts.Repositories;
 using ApplicationCore.Entities;
 using Infrastruture.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace Infrastruture.Repositories;
 
@@ -12,13 +13,13 @@ public class MovieRepository : BaseRepository<Movie>, IMovieRepository
         _context = c;
     }
 
-    public IEnumerable<Movie> GetTopRevenueMovies(int number = 20)
+    public async Task<IEnumerable<Movie>> GetTopRevenueMovies(int number = 20)
     {
-        throw new NotImplementedException();
+        return await _context.Movies.OrderByDescending(m => m.Revenue).Take(number).ToListAsync();
     }
 
-    public IEnumerable<Movie> GetMoviesWithGenre()
+    public async Task<IEnumerable<Movie>> GetMoviesWithGenre()
     {
-        throw new NotImplementedException();
+        return await _context.Movies.Include(m=>m).ToListAsync();
     }
 }

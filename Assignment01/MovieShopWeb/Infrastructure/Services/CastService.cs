@@ -4,7 +4,7 @@ using ApplicationCore.Entities;
 
 namespace Infrastruture.Services;
 
-public class CastService: ICastService
+public class CastService:ICastService
 {
     private ICastRepository _repository;
 
@@ -14,22 +14,17 @@ public class CastService: ICastService
     }
     public int AddCast(Cast cast)
     {
-        return _repository.Insert(cast);
+        throw new NotImplementedException();
     }
 
-    public int UpdateCast(Cast cast,int id)
+    public int UpdateCast(Cast cast, int id)
     {
-        if (cast.Id == id)
-        {
-            return _repository.Update(cast);
-        }
-
-        return 0;
+        throw new NotImplementedException();
     }
 
     public int DeleteCast(int id)
     {
-        return _repository.Delete(id);
+        throw new NotImplementedException();
     }
 
     public IEnumerable<Cast> GetAllCasts()
@@ -39,6 +34,6 @@ public class CastService: ICastService
 
     public Cast GetCastById(int id)
     {
-        return _repository.GetById(id);
+        throw new NotImplementedException();
     }
 }

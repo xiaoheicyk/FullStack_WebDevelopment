@@ -20,4 +20,5 @@ public class Movie
     public string? TmdbUrl { get; set; }
     public string? UpdatedBy { get; set; }
     public DateTime? UpdatedDate { get; set; }
+    public string? Genre { get; set; }
 }
