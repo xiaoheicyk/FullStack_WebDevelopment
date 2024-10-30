@@ -1,46 +1,19 @@
 using System.Linq.Expressions;
 using ApplicationCore.Contracts.Repositories;
 using ApplicationCore.Entities;
+using Infrastructure.Data;
 
 namespace Infrastructure.Repositories;
 
-public class MovieRepository: IMovieRepository
+public class MovieRepository: BaseRepository<Movie>,IMovieRepository
 {
-    private readonly IMovieRepository _movieRepository;
+    private readonly MovieShopDbContext _context;
 
-    public MovieRepository(IMovieRepository movieRepository)
+    public MovieRepository(MovieShopDbContext dbContext):base(dbContext)
     {
-        _movieRepository = movieRepository;
+        _context = dbContext;
     }
-
-
-    public Task<int> InsertAsync(Movie entity)
-    {
-        return _movieRepository.InsertAsync(entity);
-    }
-
-    public Task<int> UpdateAsync(Movie entity)
-    {
-        return _movieRepository.UpdateAsync(entity);
-    }
-
-    public Task<int> DeleteAsync(int Id)
-    {
-        return _movieRepository.DeleteAsync(Id);
-    }
-
-    public Task<IEnumerable<Movie>> GetAllAsync()
-    {
-        return _movieRepository.GetAllAsync();
-    }
-
-    public Task<Movie?> GetByIdAsync(int id)
-    {
-        return _movieRepository.GetByIdAsync(id);
-    }
-
-    public Task<int> GetCountAsync(Expression<Func<Movie, bool>> filter = null)
-    {
-        return _movieRepository.GetCountAsync(filter);
-    }
+    
+    
+    
 }

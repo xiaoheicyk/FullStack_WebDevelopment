@@ -1,22 +1,23 @@
 @using Microsoft.AspNetCore.Mvc.TagHelpers
-
-@model IEnumerable<ApplicationCore.Contracts.Models.MovieCardModel>;
-
+@model IEnumerable<ApplicationCore.Entities.Movie>;
 @{
-    ViewData["Title"] = "List of Movies";
+ViewData["Title"] = "List of Genres";
 }
-
 <h1>@ViewData["Title"]</h1>
-
-
-<div class="container">
-    
-    <div class="row">
-        @foreach (var movie in Model)
-        {
-            <div class="col-md-3 mb-4">
-                @Html.Partial("_MovieCard", movie)
-            </div>
-        }
-    </div>
-</div>
+<table class="table table-bordered table-hover">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Options</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model) {
+    <tr>
+        <td>@item.Id</td>
+        <td>@item.Title</td>
+    </tr>
+    }
+    </tbody>
+</table>

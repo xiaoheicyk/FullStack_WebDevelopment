@@ -19,16 +19,7 @@ public class MovieController : Controller
     public async Task<IActionResult> Index()
     {
         var movies = await _movieRepository.GetAllAsync();
-        var movieCards = movies.Select(movie => new MovieCardModel
-        {
-            Id = movie.Id,
-            Title = movie.Title,
-            Overview = movie.Overview,
-            BackdropPath = movie.BackdropUrl,
-            ImbdUrl = movie.ImdbUrl
-        }).ToList();
-        
-        return View(movieCards as IEnumerable<MovieCardModel>);
+        return View(movies);
     }
     
     
