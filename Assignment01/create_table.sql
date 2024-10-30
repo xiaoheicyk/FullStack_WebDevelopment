@@ -46,3 +46,21 @@ CREATE TABLE [dbo].[Casts] (
     [ProfilePath] NVARCHAR(255) NULL
 );
 
+
+CREATE TABLE [dbo].[MovieCasts] (
+    [MovieId] INT NOT NULL,
+    [CastId] INT NOT NULL,
+    [Character] NVARCHAR(255) NULL,
+    PRIMARY KEY ([MovieId], [CastId]),
+    FOREIGN KEY ([MovieId]) REFERENCES [Movies](Id),
+    FOREIGN KEY ([CastId]) REFERENCES [Casts](Id)
+);
+
+
+CREATE TABLE [dbo].[Trailers] (
+    [Id] INT IDENTITY(1,1) PRIMARY KEY,
+    [MovieId] INT NOT NULL,
+    [TrailerUrl] NVARCHAR(255) NOT NULL,
+    [Name] NVARCHAR(255) NOT NULL,
+    FOREIGN KEY ([MovieId]) REFERENCES [Movies](Id)
+);
