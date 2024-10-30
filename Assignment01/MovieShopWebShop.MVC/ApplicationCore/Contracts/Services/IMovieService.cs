@@ -4,7 +4,6 @@ namespace ApplicationCore.Contracts.Services;
 
 public interface IMovieService
 {
-    Task<IEnumerator<Movie>> GetAllAsync();
     
     Task<Movie> GetByIdAsync(int id);
     
