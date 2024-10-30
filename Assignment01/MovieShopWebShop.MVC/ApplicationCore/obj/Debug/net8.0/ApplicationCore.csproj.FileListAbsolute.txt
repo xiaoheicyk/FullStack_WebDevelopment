@@ -1,0 +1,13 @@
+/Users/CC/Documents/GitHub/FullStack_WebDevelopment/Assignment01/MovieShopWebShop.MVC/ApplicationCore/bin/Debug/net8.0/ApplicationCore.deps.json
+/Users/CC/Documents/GitHub/FullStack_WebDevelopment/Assignment01/MovieShopWebShop.MVC/ApplicationCore/bin/Debug/net8.0/ApplicationCore.dll
+/Users/CC/Documents/GitHub/FullStack_WebDevelopment/Assignment01/MovieShopWebShop.MVC/ApplicationCore/bin/Debug/net8.0/ApplicationCore.pdb
+/Users/CC/Documents/GitHub/FullStack_WebDevelopment/Assignment01/MovieShopWebShop.MVC/ApplicationCore/obj/Debug/net8.0/ApplicationCore.csproj.AssemblyReference.cache
+/Users/CC/Documents/GitHub/FullStack_WebDevelopment/Assignment01/MovieShopWebShop.MVC/ApplicationCore/obj/Debug/net8.0/ApplicationCore.GeneratedMSBuildEditorConfig.editorconfig
+/Users/CC/Documents/GitHub/FullStack_WebDevelopment/Assignment01/MovieShopWebShop.MVC/ApplicationCore/obj/Debug/net8.0/ApplicationCore.AssemblyInfoInputs.cache
+/Users/CC/Documents/GitHub/FullStack_WebDevelopment/Assignment01/MovieShopWebShop.MVC/ApplicationCore/obj/Debug/net8.0/ApplicationCore.AssemblyInfo.cs
+/Users/CC/Documents/GitHub/FullStack_WebDevelopment/Assignment01/MovieShopWebShop.MVC/ApplicationCore/obj/Debug/net8.0/ApplicationCore.csproj.CoreCompileInputs.cache
+/Users/CC/Documents/GitHub/FullStack_WebDevelopment/Assignment01/MovieShopWebShop.MVC/ApplicationCore/obj/Debug/net8.0/ApplicationCore.sourcelink.json
+/Users/CC/Documents/GitHub/FullStack_WebDevelopment/Assignment01/MovieShopWebShop.MVC/ApplicationCore/obj/Debug/net8.0/ApplicationCore.dll
+/Users/CC/Documents/GitHub/FullStack_WebDevelopment/Assignment01/MovieShopWebShop.MVC/ApplicationCore/obj/Debug/net8.0/refint/ApplicationCore.dll
+/Users/CC/Documents/GitHub/FullStack_WebDevelopment/Assignment01/MovieShopWebShop.MVC/ApplicationCore/obj/Debug/net8.0/ApplicationCore.pdb
+/Users/CC/Documents/GitHub/FullStack_WebDevelopment/Assignment01/MovieShopWebShop.MVC/ApplicationCore/obj/Debug/net8.0/ref/ApplicationCore.dll
