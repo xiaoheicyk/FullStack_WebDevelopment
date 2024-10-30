@@ -1,4 +1,4 @@
-namespace ApplicationCore.Contracts.Models;
+namespace ApplicationCore.Models;
 
 public class MovieCardModel
 {

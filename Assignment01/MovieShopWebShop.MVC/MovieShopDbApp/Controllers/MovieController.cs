@@ -1,4 +1,4 @@
-using ApplicationCore.Contracts.Models;
+using ApplicationCore.Models;
 using ApplicationCore.Contracts.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
@@ -19,7 +19,14 @@ public class MovieController : Controller
     public async Task<IActionResult> Index()
     {
         var movies = await _movieRepository.GetAllAsync();
-        return View(movies);
+        var movieCards = movies.Select(movie => new MovieCardModel
+        {
+            Id = movie.Id,
+            BackdropPath = movie.BackdropUrl,
+            ImbdUrl = movie.ImdbUrl,
+            Title = movie.Title
+        }).ToList();
+        return View(movieCards as IEnumerable<MovieCardModel>);
     }
     
     
