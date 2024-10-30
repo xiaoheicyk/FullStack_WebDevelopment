@@ -14,3 +14,5 @@
 /Users/CC/Documents/GitHub/FullStack_WebDevelopment/Assignment01/MovieShopWebShop.MVC/Infrastructure/obj/Debug/net8.0/refint/Infrastructure.dll
 /Users/CC/Documents/GitHub/FullStack_WebDevelopment/Assignment01/MovieShopWebShop.MVC/Infrastructure/obj/Debug/net8.0/Infrastructure.pdb
 /Users/CC/Documents/GitHub/FullStack_WebDevelopment/Assignment01/MovieShopWebShop.MVC/Infrastructure/obj/Debug/net8.0/ref/Infrastructure.dll
+/Users/CC/Documents/GitHub/FullStack_WebDevelopment/Assignment01/MovieShopWebShop.MVC/Infrastructure/bin/Debug/net8.0/Infrastructure.runtimeconfig.json
+/Users/CC/Documents/GitHub/FullStack_WebDevelopment/Assignment01/MovieShopWebShop.MVC/Infrastructure/obj/Debug/net8.0/Infrastructure.genruntimeconfig.cache

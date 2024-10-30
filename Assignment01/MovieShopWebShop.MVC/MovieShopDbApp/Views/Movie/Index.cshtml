@@ -1,0 +1,22 @@
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+
+@model IEnumerable<ApplicationCore.Contracts.Models.MovieCardModel>;
+
+@{
+    ViewData["Title"] = "List of Movies";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+
+<div class="container">
+    
+    <div class="row">
+        @foreach (var movie in Model)
+        {
+            <div class="col-md-3 mb-4">
+                @Html.Partial("_MovieCard", movie)
+            </div>
+        }
+    </div>
+</div>
