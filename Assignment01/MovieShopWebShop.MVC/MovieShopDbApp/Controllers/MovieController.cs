@@ -1,5 +1,6 @@
 using ApplicationCore.Models;
 using ApplicationCore.Contracts.Repositories;
+using Infrastructure.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MovieShopDbApp.Controllers;
@@ -16,7 +17,7 @@ public class MovieController : Controller
     
     
     // GET
-    public async Task<IActionResult> Index()
+    public async Task<IActionResult> Index(int pageIndex = 1, int pageSize = 40)
     {
         var movies = await _movieRepository.GetAllAsync();
         var movieCards = movies.Select(movie => new MovieCardModel
@@ -26,7 +27,15 @@ public class MovieController : Controller
             ImbdUrl = movie.ImdbUrl,
             Title = movie.Title
         }).ToList();
-        return View(movieCards as IEnumerable<MovieCardModel>);
+        int totalCount = movieCards.Count();
+        var paginatedMovies = new PaginatedList<MovieCardModel>(
+            movieCards.Skip((pageIndex - 1) * pageSize).Take(pageSize), 
+            totalCount, 
+            pageIndex, 
+            pageSize);
+
+        
+        return View(paginatedMovies as IEnumerable<MovieCardModel>);
     }
     
     
