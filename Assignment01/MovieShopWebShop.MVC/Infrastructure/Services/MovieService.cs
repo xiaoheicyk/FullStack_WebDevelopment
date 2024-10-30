@@ -3,6 +3,7 @@ using ApplicationCore.Contracts.Services;
 using ApplicationCore.Entities;
 using Infrastructure.Data;
 using Infrastructure.Repositories;
+using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Services;
 
@@ -17,13 +18,8 @@ public class MovieService:IMovieService
     
     
 
-    public Task<Movie> GetByIdAsync(int id)
+    public async Task<IEnumerable<Movie>> GetTopRevenueAsync(int number = 20)
     {
-        throw new NotImplementedException();
-    }
-
-    public Task<IEnumerator<Movie>> GetTopRevenueAsync(int number = 20)
-    {
-        throw new NotImplementedException();
+        return await _context.Movies.OrderByDescending(m => m.Revenue).Take(20).ToListAsync();
     }
 }
