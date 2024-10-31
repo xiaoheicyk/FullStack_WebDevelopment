@@ -2,7 +2,7 @@ using System.Linq.Expressions;
 
 namespace ApplicationCore.Contracts.Repositories;
 
-public interface IRespository<T> where T : class
+public interface IRepository<T> where T : class
 {
     Task<int> InsertAsync(T entity);
     

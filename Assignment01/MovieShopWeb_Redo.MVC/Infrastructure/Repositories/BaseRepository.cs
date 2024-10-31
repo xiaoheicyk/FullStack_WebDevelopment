@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Repositories;
 
-public class BaseRepository<T>:IRespository<T> where T:class 
+public class BaseRepository<T>:IRepository<T> where T:class 
 {
     private readonly MovieShopDbContext _context;
 
