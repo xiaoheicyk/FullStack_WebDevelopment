@@ -19,15 +19,9 @@ public class GenreController : Controller
     
     
     // GET
-    public async Task<IActionResult> Index(int id)
+    public async Task<IActionResult> Index()
     {
-        var movies = await _movieRepository;
-        var genres = await _genreRepository.GetByIdAsync(id);
-        var model = new GenreViewModel()
-        {
-            Genre = genres,
-            Movies = movies
-        };
-        return View(model);
+
+        return View();
     }
 }
