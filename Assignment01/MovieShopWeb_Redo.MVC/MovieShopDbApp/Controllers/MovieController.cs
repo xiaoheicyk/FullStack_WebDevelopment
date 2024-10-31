@@ -35,6 +35,11 @@ public class MovieController : Controller
             pageSize);
         return View(paginatedMovies);
     }
-    
+
+    public async Task<IActionResult> Details(int id)
+    {
+        var movie = await _movieRepository.GetByIdAsync(id);
+        return View(movie);
+    }
     
 }

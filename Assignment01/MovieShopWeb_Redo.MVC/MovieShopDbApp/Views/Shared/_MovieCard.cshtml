@@ -1,5 +1,7 @@
 @model ApplicationCore.Models.MovieCardModel
 
+<a asp-controller="Movie" asp-action="Details" asp-route-id=@Model.Id style="text-decoration: none; color: inherit;">
 <div class="card">
     <img src="@Model.BackdropPath" class="card-img-top" alt="@Model.Title" style="height: 200px; object-fit: cover;">
 </div>
+</a>

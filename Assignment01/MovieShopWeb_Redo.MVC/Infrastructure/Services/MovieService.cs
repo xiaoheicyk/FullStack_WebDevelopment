@@ -21,7 +21,7 @@ public class MovieService:IMovieService
 
     public async Task<IEnumerable<Movie>> GetTopRevenueAsync(int number = 20)
     {
-        return await _context.Movies.OrderByDescending(m => m.Revenue).Take(20).ToListAsync();
+        return await _context.Movies.OrderByDescending(m => m.Revenue).Take(number).ToListAsync();
     }
     
     public async Task<PaginatedList<Movie>> GetPaginatedMoviesAsync(int pageIndex, int pageSize)
