@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "JGhStPdcYu0=",
+  "dgSpecHash": "j8+XR8qUNhk=",
   "success": true,
-  "projectFilePath": "/Users/CC/Documents/GitHub/FullStack_WebDevelopment/Assignment01/MovieShopWebShop.MVC/Infrastructure/Infrastructure.csproj",
+  "projectFilePath": "/Users/CC/Documents/GitHub/FullStack_WebDevelopment/Assignment01/MovieShopWeb_Redo.MVC/Infrastructure/Infrastructure.csproj",
   "expectedPackageFiles": [
     "/Users/CC/.nuget/packages/azure.core/1.38.0/azure.core.1.38.0.nupkg.sha512",
     "/Users/CC/.nuget/packages/azure.identity/1.11.4/azure.identity.1.11.4.nupkg.sha512",

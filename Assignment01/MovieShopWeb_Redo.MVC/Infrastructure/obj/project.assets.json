@@ -4760,11 +4760,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/CC/Documents/GitHub/FullStack_WebDevelopment/Assignment01/MovieShopWebShop.MVC/Infrastructure/Infrastructure.csproj",
+      "projectUniqueName": "/Users/CC/Documents/GitHub/FullStack_WebDevelopment/Assignment01/MovieShopWeb_Redo.MVC/Infrastructure/Infrastructure.csproj",
       "projectName": "Infrastructure",
-      "projectPath": "/Users/CC/Documents/GitHub/FullStack_WebDevelopment/Assignment01/MovieShopWebShop.MVC/Infrastructure/Infrastructure.csproj",
+      "projectPath": "/Users/CC/Documents/GitHub/FullStack_WebDevelopment/Assignment01/MovieShopWeb_Redo.MVC/Infrastructure/Infrastructure.csproj",
       "packagesPath": "/Users/CC/.nuget/packages/",
-      "outputPath": "/Users/CC/Documents/GitHub/FullStack_WebDevelopment/Assignment01/MovieShopWebShop.MVC/Infrastructure/obj/",
+      "outputPath": "/Users/CC/Documents/GitHub/FullStack_WebDevelopment/Assignment01/MovieShopWeb_Redo.MVC/Infrastructure/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/CC/.nuget/NuGet/NuGet.Config"
@@ -4779,8 +4779,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "/Users/CC/Documents/GitHub/FullStack_WebDevelopment/Assignment01/MovieShopWebShop.MVC/ApplicationCore/ApplicationCore.csproj": {
-              "projectPath": "/Users/CC/Documents/GitHub/FullStack_WebDevelopment/Assignment01/MovieShopWebShop.MVC/ApplicationCore/ApplicationCore.csproj"
+            "/Users/CC/Documents/GitHub/FullStack_WebDevelopment/Assignment01/MovieShopWeb_Redo.MVC/ApplicationCore/ApplicationCore.csproj": {
+              "projectPath": "/Users/CC/Documents/GitHub/FullStack_WebDevelopment/Assignment01/MovieShopWeb_Redo.MVC/ApplicationCore/ApplicationCore.csproj"
             }
           }
         }

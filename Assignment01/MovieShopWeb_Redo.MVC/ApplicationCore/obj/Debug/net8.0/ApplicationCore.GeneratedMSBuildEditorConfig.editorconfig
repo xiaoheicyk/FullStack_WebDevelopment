@@ -16,6 +16,6 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = ApplicationCore
-build_property.ProjectDir = /Users/CC/Documents/GitHub/FullStack_WebDevelopment/Assignment01/MovieShopWebShop.MVC/ApplicationCore/
+build_property.ProjectDir = /Users/CC/Documents/GitHub/FullStack_WebDevelopment/Assignment01/MovieShopWeb_Redo.MVC/ApplicationCore/
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

@@ -4740,11 +4740,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/CC/Documents/GitHub/FullStack_WebDevelopment/Assignment01/MovieShopWebShop.MVC/ApplicationCore/ApplicationCore.csproj",
+      "projectUniqueName": "/Users/CC/Documents/GitHub/FullStack_WebDevelopment/Assignment01/MovieShopWeb_Redo.MVC/ApplicationCore/ApplicationCore.csproj",
       "projectName": "ApplicationCore",
-      "projectPath": "/Users/CC/Documents/GitHub/FullStack_WebDevelopment/Assignment01/MovieShopWebShop.MVC/ApplicationCore/ApplicationCore.csproj",
+      "projectPath": "/Users/CC/Documents/GitHub/FullStack_WebDevelopment/Assignment01/MovieShopWeb_Redo.MVC/ApplicationCore/ApplicationCore.csproj",
       "packagesPath": "/Users/CC/.nuget/packages/",
-      "outputPath": "/Users/CC/Documents/GitHub/FullStack_WebDevelopment/Assignment01/MovieShopWebShop.MVC/ApplicationCore/obj/",
+      "outputPath": "/Users/CC/Documents/GitHub/FullStack_WebDevelopment/Assignment01/MovieShopWeb_Redo.MVC/ApplicationCore/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/CC/.nuget/NuGet/NuGet.Config"
