@@ -35,7 +35,7 @@ public class MovieController : Controller
             pageSize);
 
         
-        return View(paginatedMovies as IEnumerable<MovieCardModel>);
+        return View((PaginatedList<MovieCardModel>)(paginatedMovies as IEnumerable<MovieCardModel>));
     }
     
     
