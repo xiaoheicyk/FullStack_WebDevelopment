@@ -8,6 +8,9 @@ variables:
   buildConfiguration: 'Release'  # 正确地定义变量
 
 steps:
+# 禁用自动 checkout
+- checkout: none
+
 # 使用 DotNetCoreCLI 任务
 - task: DotNetCoreCLI@2
   inputs:
