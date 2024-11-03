@@ -18,4 +18,5 @@ public class Movie
     public string? ImdbUrl { get; set; }
     public string? OriginalLanguage { get; set; }
     public DateTime? ReleaseDate { get; set; }
+    public ICollection<MovieGenre> MovieGenres { get; set; }
 }
