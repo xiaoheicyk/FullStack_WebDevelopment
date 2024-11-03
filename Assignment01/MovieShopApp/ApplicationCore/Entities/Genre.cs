@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ApplicationCore.Entities;
 
-public class Genres
+public class Genre
 {
     [Key]
     public int Id { get; set; }
