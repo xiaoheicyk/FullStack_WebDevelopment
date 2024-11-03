@@ -26,6 +26,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = /Users/CC/Documents/GitHub/FullStack_WebDevelopment/Assignment01/MovieShopApp/MovieShopMVC
 build_property._RazorSourceGeneratorDebug = 
 
+[/Users/CC/Documents/GitHub/FullStack_WebDevelopment/Assignment01/MovieShopApp/MovieShopMVC/Views/Genre/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvR2VucmUvSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/CC/Documents/GitHub/FullStack_WebDevelopment/Assignment01/MovieShopApp/MovieShopMVC/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -34,12 +38,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Qcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/CC/Documents/GitHub/FullStack_WebDevelopment/Assignment01/MovieShopApp/MovieShopMVC/Views/Movie/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTW92aWUvSW5kZXguY3NodG1s
+[/Users/CC/Documents/GitHub/FullStack_WebDevelopment/Assignment01/MovieShopApp/MovieShopMVC/Views/Movie/ByGenre.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTW92aWUvQnlHZW5yZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/CC/Documents/GitHub/FullStack_WebDevelopment/Assignment01/MovieShopApp/MovieShopMVC/Views/Movie/MoviesByGenre.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTW92aWUvTW92aWVzQnlHZW5yZS5jc2h0bWw=
+[/Users/CC/Documents/GitHub/FullStack_WebDevelopment/Assignment01/MovieShopApp/MovieShopMVC/Views/Movie/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTW92aWUvSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/CC/Documents/GitHub/FullStack_WebDevelopment/Assignment01/MovieShopApp/MovieShopMVC/Views/Shared/Error.cshtml]

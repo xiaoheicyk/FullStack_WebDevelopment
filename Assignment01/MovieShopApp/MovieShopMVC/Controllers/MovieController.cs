@@ -36,7 +36,7 @@ public class MovieController : Controller
         return View(paginatedMovies);
     }
 
-    public async Task<IActionResult> MoviesByGenre(int GenreId, int pageIndex = 1, int pageSize = 40)
+    public async Task<IActionResult> ByGenre(int GenreId, int pageIndex = 1, int pageSize = 40)
     {
         var movies = await _movieService.GetMoviesByGenreAsync(GenreId);
         var movieCards = movies.Select(movie => new MovieCardModel
@@ -52,6 +52,7 @@ public class MovieController : Controller
             totalCount, 
             pageIndex, 
             pageSize);
+        ViewData["GenreId"] = GenreId;
         return View(paginatedMovies);
     }
     

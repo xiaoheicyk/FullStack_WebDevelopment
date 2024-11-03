@@ -6,4 +6,5 @@ public interface IGenreService
 {
     Task<IEnumerable<Genre>> GetAllGenresAsync();
     Task<Genre> GetGenreByIdAsync(int id);
+    
 }

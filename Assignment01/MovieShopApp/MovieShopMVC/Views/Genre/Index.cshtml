@@ -1,0 +1,33 @@
+@model IEnumerable<ApplicationCore.Entities.Genre>
+
+@{
+    ViewData["Title"] = "Genres List";
+}
+
+<h1 class="text-center my-4">Genres List</h1>
+
+<div class="container">
+    <table class="table table-striped table-hover">
+        <thead class="thead-dark">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var genre in Model)
+        {
+            <tr>
+                <td>@genre.Id</td>
+                <td>@genre.Name</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
+
+@section Scripts {
+    <script>
+        // You can add any custom JavaScript/jQuery here if needed
+    </script>
+}
