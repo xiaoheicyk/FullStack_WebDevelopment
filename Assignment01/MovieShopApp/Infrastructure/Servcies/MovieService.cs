@@ -26,4 +26,9 @@ public class MovieService:IMovieService
     {
         return _movieRepository.GetAllAsync();
     }
+
+    public Task<Movie> GetMovieByIdAsync(int id)
+    {
+        return _movieRepository.GetByIdAsync(id);
+    }
 }

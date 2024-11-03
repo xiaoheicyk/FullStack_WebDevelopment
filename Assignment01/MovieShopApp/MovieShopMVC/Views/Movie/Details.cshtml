@@ -1,0 +1,127 @@
+@model ApplicationCore.Entities.Movie
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>@Model.Title</title>
+    <link rel="stylesheet" href="~/css/styles.css">
+    <style>
+        /* General styling */
+        .movie-container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            font-family: Arial, sans-serif;
+        }
+        .movie-header {
+            display: flex;
+            align-items: center;
+        }
+        .movie-header img {
+            width: 150px;
+            height: auto;
+            border-radius: 10px;
+            margin-right: 20px;
+        }
+        .movie-details {
+            flex: 1;
+        }
+        .movie-title {
+            font-size: 28px;
+            font-weight: bold;
+            margin: 0;
+        }
+        .movie-runtime, .movie-release {
+            font-size: 14px;
+            color: #777;
+            margin-top: 5px;
+        }
+        .movie-overview, .movie-facts, .movie-cast {
+            margin-top: 20px;
+        }
+        .movie-overview h3, .movie-facts h3, .movie-cast h3 {
+            font-size: 20px;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 5px;
+        }
+        .movie-facts ul, .movie-cast ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .movie-facts ul li, .movie-cast ul li {
+            margin-bottom: 10px;
+        }
+        .movie-links a {
+            text-decoration: none;
+            color: #007bff;
+        }
+        .movie-links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+<div class="movie-container">
+    <!-- Header Section with poster and title -->
+    <div class="movie-header">
+        <img src="@Model.PosterUrl" alt="@Model.Title Poster" />
+        <div class="movie-details">
+            <h1 class="movie-title">@Model.Title</h1>
+            <div class="movie-runtime">Runtime: @Model.Runtime mins</div>
+            @if (Model.ReleaseDate!= null)
+            {
+            <div class="movie-release">Release Date: @Model.ReleaseDate</div>
+            }
+        </div>
+    </div>
+
+    <!-- Overview Section -->
+    <div class="movie-overview">
+        <h3>Overview</h3>
+        <p>@Model.OverView</p>
+    </div>
+
+    <!-- Movie Facts Section -->
+    @* <div class="movie-facts"> *@
+    @*     <h3>Movie Facts</h3> *@
+    @*     <ul> *@
+    @*         <li>Box Office: $@Model.BoxOffice.ToString("N")</li> *@
+    @*         <li>Budget: $@Model.Budget.ToString("N")</li> *@
+    @*         <li>Genres: *@
+    @*             @foreach (var genre in Model.Genres) *@
+    @*             { *@
+    @*             <span class="genre">@genre</span> *@
+    @*             } *@
+    @*         </li> *@
+    @*     </ul> *@
+    @* </div> *@
+
+    <!-- Cast Section -->
+    @* <div class="movie-cast"> *@
+    @*     <h3>Cast</h3> *@
+    @*     <ul> *@
+    @*         @foreach (var actor in Model.Cast) *@
+    @*         { *@
+    @*         <li> *@
+    @*             <img src="@actor.ImageUrl" alt="@actor.Name" class="actor-photo" style="width:50px; height:auto; border-radius:50%; margin-right:10px; display:inline-block;" /> *@
+    @*             <span class="actor-name">@actor.Name as @actor.CharacterName</span> *@
+    @*         </li> *@
+    @*         } *@
+    @*     </ul> *@
+    @* </div> *@
+
+    <!-- Links Section -->
+    <div class="movie-links">
+        <h3>More Information</h3>
+        @if (!string.IsNullOrEmpty(Model.ImdbUrl))
+        {
+        <a href="@Model.ImdbUrl" target="_blank">View on IMDb</a>
+        }
+    </div>
+</div>
+</body>
+</html>

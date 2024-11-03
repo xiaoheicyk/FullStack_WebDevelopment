@@ -13,4 +13,10 @@ public class MovieCardModel
     public string? BackdropPath { get; set; }
     
     public string? ImbdUrl { get; set; }
+    
+    public string? PosterUrl { get; set; }
+    
+    public int Runtime { get; set; }
+    
+    
 }

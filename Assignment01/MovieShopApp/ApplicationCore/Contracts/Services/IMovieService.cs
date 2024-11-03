@@ -9,4 +9,6 @@ public interface IMovieService
 
     Task<IEnumerable<Movie>> GetAllMoviesAsync();
     
+    Task<Movie> GetMovieByIdAsync(int id);
+    
 }

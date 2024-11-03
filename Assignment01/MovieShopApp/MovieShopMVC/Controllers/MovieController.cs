@@ -55,5 +55,11 @@ public class MovieController : Controller
         ViewData["GenreId"] = GenreId;
         return View(paginatedMovies);
     }
+
+    public async Task<IActionResult> Details(int id)
+    {
+        var movie = await _movieService.GetMovieByIdAsync(id);
+        return View(movie);
+    }
     
 }
