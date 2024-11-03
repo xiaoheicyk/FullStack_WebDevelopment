@@ -1,0 +1,36 @@
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model Infrastructure.Models.PaginatedList<ApplicationCore.Models.MovieCardModel>
+
+@{
+ViewData["Title"] = "List of Movies";
+}
+
+
+<div class="row">
+    @foreach (var movie in Model)
+    {
+    <div class="col-md-3 mb-4">
+        @Html.Partial("_MovieCard", movie)
+    </div>
+    }
+</div>
+
+<div class="pagination-container">
+    @if (Model.HasPreviousPage)
+    {
+    <a asp-action="Index" asp-route-pageIndex="@(Model.PageIndex - 1)" asp-route-pageSize="@Model.PageSize" class="btn btn-secondary">Previous</a>
+    }
+
+    <span class="page-info">Page @Model.PageIndex of @Model.TotalPages</span>
+
+    @if (Model.HasNextPage)
+    {
+    <a asp-action="Index" asp-route-pageIndex="@(Model.PageIndex + 1)" asp-route-pageSize="@Model.PageSize" class="btn btn-secondary">Next</a>
+    }
+
+    <form asp-action="Index" method="get" class="d-inline">
+        <input type="number" name="pageIndex" min="1" max="@Model.TotalPages" value="@Model.PageIndex" class="form-control d-inline" style="width: 80px;" />
+        <input type="hidden" name="pageSize" value="@Model.PageSize" />
+        <button type="submit" class="btn btn-primary">Go</button>
+    </form>
+</div>
