@@ -22,4 +22,6 @@ public class GenreService:IGenreService
     {
         return _genreRepository.GetByIdAsync(id);
     }
+
+
 }
