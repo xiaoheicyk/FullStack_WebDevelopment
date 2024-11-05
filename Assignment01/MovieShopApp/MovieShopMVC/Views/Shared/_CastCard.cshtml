@@ -1,0 +1,10 @@
+@model ApplicationCore.Models.ResponseModels.CastDetailsResponseModel
+
+<a asp-controller="Movie" asp-action="Details" asp-route-id="@Model.Id" style="text-decoration: none; color: inherit;">
+    <div class="card">
+        <img src="@Model.ProfilePath" class="card-img-top" alt="@Model.Name" style="height: 200px; object-fit: cover;">
+        <div class="card-body text-center">
+            <h5 class="card-title">@Model.Name</h5>
+        </div>
+    </div>
+</a>

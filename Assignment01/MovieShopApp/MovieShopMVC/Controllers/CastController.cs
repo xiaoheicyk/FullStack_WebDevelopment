@@ -15,23 +15,23 @@ public class CastController : Controller
         _castService = castService;
     }
     // GET
-    public async Task<IActionResult> Index(int pageIndex = 1, int pageSize = 40)
+    public async Task<IActionResult> Index(int pageIndex = 1, int pageSize = 100)
     {
         var casts = await _castService.GetAllCastsAsync();
-        // var castCards = casts.Select(cast => new CastDetailsResponseModel
-        // {
-        //     Id = cast.Id,
-        //     Name = cast.Name,
-        //     Gender = cast.Gender,
-        //     TmdbUrl = cast.TmdbUrl,
-        //     ProfilePath = cast.ProfilePath
-        // }).ToList();
-        // int count = castCards.Count;
-        // var paginatedCasts = new PaginatedList<CastDetailsResponseModel>(
-        //     castCards.Skip((pageIndex - 1) * pageSize).Take(pageSize), 
-        //     count, 
-        //     pageIndex, 
-        //     pageSize);
-        return View();
+        var castCards = casts.Select(cast => new CastDetailsResponseModel
+        {
+            Id = cast.Id,
+            Name = cast.Name,
+            Gender = cast.Gender,
+            TmdbUrl = cast.TmdbUrl,
+            ProfilePath = cast.ProfilePath
+        }).ToList();
+        int count = castCards.Count;
+        var paginatedCasts = new PaginatedList<CastDetailsResponseModel>(
+            castCards.Skip((pageIndex - 1) * pageSize).Take(pageSize), 
+            count, 
+            pageIndex, 
+            pageSize);
+        return View(paginatedCasts);
     }
 }

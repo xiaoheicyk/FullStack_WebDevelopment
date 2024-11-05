@@ -1,13 +1,46 @@
-@using Infrastructure.Models
+@using System.Collections
+@using ApplicationCore.Entities
 @using Microsoft.AspNetCore.Mvc.TagHelpers
-@model IEnumerable<ApplicationCore.Entities.Cast>
+@model Infrastructure.Models.PaginatedList<ApplicationCore.Models.ResponseModels.CastDetailsResponseModel>
 
 @{
-    ViewData["Title"] = "Actor List";
+ViewData["Title"] = "List of All Casts";
 }
 
-<h1>@ViewData["Title"]</h1>
+<h1 class="text-center mt-4 mb-4">@ViewData["Title"]</h1>
 
-<div class="row">
-    
+<div class="container">
+    <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4">
+        @foreach (var cast in Model)
+        {
+        <div class="col">
+            @Html.Partial("_CastCard", cast)
+        </div>
+        }
+    </div>
+
+    <div class="pagination-container d-flex justify-content-center align-items-center mt-4">
+        @* Previous Page Button *@
+        @if (Model.HasPreviousPage)
+        {
+        <a asp-action="Index" asp-route-pageIndex="@(Model.PageIndex - 1)" asp-route-pageSize="@Model.PageSize" asp-route-GenreId="@ViewData["SelectedGenreId"]" class="btn btn-outline-secondary me-2">Previous</a>
+        }
+
+        @* Page Info *@
+        <span class="page-info mx-3">Page @Model.PageIndex of @Model.TotalPages</span>
+
+        @* Next Page Button *@
+        @if (Model.HasNextPage)
+        {
+        <a asp-action="Index" asp-route-pageIndex="@(Model.PageIndex + 1)" asp-route-pageSize="@Model.PageSize" asp-route-GenreId="@ViewData["SelectedGenreId"]" class="btn btn-outline-secondary ms-2">Next</a>
+        }
+
+        @* Go to Page Form *@
+        <form asp-action="Index" method="get" class="d-inline ms-3">
+            <input type="number" name="pageIndex" min="1" max="@Model.TotalPages" value="@Model.PageIndex" class="form-control d-inline" style="width: 80px; display: inline;" />
+            <input type="hidden" name="pageSize" value="@Model.PageSize" />
+            <input type="hidden" name="GenreId" value="@ViewData["SelectedGenreId"]" />
+            <button type="submit" class="btn btn-primary ms-2">Go</button>
+        </form>
+    </div>
 </div>
