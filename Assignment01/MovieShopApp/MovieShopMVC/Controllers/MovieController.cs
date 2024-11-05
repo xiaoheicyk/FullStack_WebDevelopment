@@ -1,6 +1,6 @@
 using ApplicationCore.Contracts.Repositories;
 using ApplicationCore.Contracts.Services;
-using ApplicationCore.Models;
+using ApplicationCore.Models.ResponseModels;
 using Infrastructure.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -20,7 +20,7 @@ public class MovieController : Controller
     public async Task<IActionResult> Index(int pageIndex = 1, int pageSize = 40)
     {
         var movies = await _movieService.GetAllMoviesAsync();
-        var movieCards = movies.Select(movie => new MovieCardModel
+        var movieCards = movies.Select(movie => new MovieCardResponseModel
         {
             Id = movie.Id,
             BackdropPath = movie.BackdropUrl,
@@ -28,7 +28,7 @@ public class MovieController : Controller
             Title = movie.Title
         }).ToList();
         int totalCount = movieCards.Count();
-        var paginatedMovies = new PaginatedList<MovieCardModel>(
+        var paginatedMovies = new PaginatedList<MovieCardResponseModel>(
             movieCards.Skip((pageIndex - 1) * pageSize).Take(pageSize), 
             totalCount, 
             pageIndex, 
@@ -39,7 +39,7 @@ public class MovieController : Controller
     public async Task<IActionResult> ByGenre(int GenreId, int pageIndex = 1, int pageSize = 40)
     {
         var movies = await _movieService.GetMoviesByGenreAsync(GenreId);
-        var movieCards = movies.Select(movie => new MovieCardModel
+        var movieCards = movies.Select(movie => new MovieCardResponseModel
         {
             Id = movie.Id,
             BackdropPath = movie.BackdropUrl,
@@ -47,7 +47,7 @@ public class MovieController : Controller
             Title = movie.Title
         }).ToList();
         int totalCount = movieCards.Count();
-        var paginatedMovies = new PaginatedList<MovieCardModel>(
+        var paginatedMovies = new PaginatedList<MovieCardResponseModel>(
             movieCards.Skip((pageIndex - 1) * pageSize).Take(pageSize), 
             totalCount, 
             pageIndex, 

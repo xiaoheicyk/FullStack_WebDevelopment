@@ -1,8 +1,8 @@
 using ApplicationCore.Entities;
 
-namespace ApplicationCore.Models;
+namespace ApplicationCore.Models.ResponseModels;
 
-public class MovieCardModel
+public class MovieCardResponseModel
 {
     public int Id { get; set; }
     
