@@ -18,5 +18,6 @@ public class MovieCardResponseModel
     
     public int Runtime { get; set; }
     
+    public DateTime? ReleaseDate { get; set; }
     
 }
