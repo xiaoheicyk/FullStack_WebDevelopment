@@ -1,0 +1,8 @@
+@using ApplicationCore.Contracts.Services
+@inject IGenreService GenreService
+
+@foreach (var genre in await GenreService.GetAllGenresAsync())
+{
+    <a asp-action="genre" asp-controller="Movies" class="dropdown-item" asp-route-id="@genre.Id"> @genre.Name</a>
+}
+}
