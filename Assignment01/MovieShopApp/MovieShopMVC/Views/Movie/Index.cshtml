@@ -1,36 +1,51 @@
+@using System.Collections
+@using ApplicationCore.Entities
 @using Microsoft.AspNetCore.Mvc.TagHelpers
 @model Infrastructure.Models.PaginatedList<ApplicationCore.Models.ResponseModels.MovieCardResponseModel>
 
 @{
-ViewData["Title"] = "List of Movies"+ViewData["GenreName"];
+    ViewData["Title"] = "List of All Movies";
 }
 
+<h1>@ViewData["Title"]</h1>
+
+<form asp-action="ByGenre" method="get" class="form-inline mb-4">
+    <select name="GenreId" class="form-control me-2">
+        <option value="">Select Genre</option>
+        @foreach (var genre in (IEnumerable<Genre>)ViewData["genres"])
+        {
+        <option value="@genre.Id">@genre.Name</option>
+        }
+    </select>
+    <button type="submit" class="btn btn-primary">Filter</button>
+</form>
 
 <div class="row">
     @foreach (var movie in Model)
     {
-    <div class="col-md-3 mb-4">
-        @Html.Partial("_MovieCard", movie)
-    </div>
+        <div class="col-md-3 mb-4">
+            @Html.Partial("_MovieCard", movie)
+        </div>
     }
 </div>
 
 <div class="pagination-container">
     @if (Model.HasPreviousPage)
     {
-    <a asp-action="Index" asp-route-pageIndex="@(Model.PageIndex - 1)" asp-route-pageSize="@Model.PageSize" class="btn btn-secondary">Previous</a>
+        <a asp-action="Index" asp-route-pageIndex="@(Model.PageIndex - 1)" asp-route-pageSize="@Model.PageSize" asp-route-GenreId="@ViewData["SelectedGenreId"]" class="btn btn-secondary">Previous</a>
     }
 
     <span class="page-info">Page @Model.PageIndex of @Model.TotalPages</span>
 
     @if (Model.HasNextPage)
     {
-    <a asp-action="Index" asp-route-pageIndex="@(Model.PageIndex + 1)" asp-route-pageSize="@Model.PageSize" class="btn btn-secondary">Next</a>
+        <a asp-action="Index" asp-route-pageIndex="@(Model.PageIndex + 1)" asp-route-pageSize="@Model.PageSize" asp-route-GenreId="@ViewData["SelectedGenreId"]" class="btn btn-secondary">Next</a>
     }
 
     <form asp-action="Index" method="get" class="d-inline">
         <input type="number" name="pageIndex" min="1" max="@Model.TotalPages" value="@Model.PageIndex" class="form-control d-inline" style="width: 80px;" />
         <input type="hidden" name="pageSize" value="@Model.PageSize" />
+        <input type="hidden" name="GenreId" value="@ViewData["SelectedGenreId"]" /> <!-- 传递当前选择的 GenreId -->
         <button type="submit" class="btn btn-primary">Go</button>
     </form>
 </div>
