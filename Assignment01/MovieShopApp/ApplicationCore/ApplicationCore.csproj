@@ -20,8 +20,11 @@
     </ItemGroup>
 
     <ItemGroup>
+      <Folder Include="Exceptions\" />
+      <Folder Include="Helpers\" />
       <Folder Include="Models\ReportModels\" />
       <Folder Include="Models\RequestModels\" />
+      <Folder Include="Validations\" />
     </ItemGroup>
 
 </Project>

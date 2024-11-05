@@ -20,4 +20,19 @@ public class MovieRepository:BaseRepository<Movie>,IMovieRepository
             .Select(mg => mg.movie)
             .ToListAsync();
     }
+
+    public Task<IEnumerable<Movie>> GetTopRatedMovies()
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task<IEnumerable<Movie>> GetHightestGrossingMovies()
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task<IEnumerable<Movie>> GetMovieReviews(int movieId)
+    {
+        throw new NotImplementedException();
+    }
 }
