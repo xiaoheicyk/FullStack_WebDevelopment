@@ -43,7 +43,7 @@ public class MovieController : Controller
         return View(paginatedMovies);
     }
 
-    [Route("movie/[action]/{GenreId?}")]
+    [Route("movie/bygenre/{GenreId}")]
     public async Task<IActionResult> ByGenre(int GenreId, int pageIndex = 1, int pageSize = 40,int? genreId = null)
     {
         var genre = await _genreService.GetGenreByIdAsync(GenreId);

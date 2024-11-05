@@ -19,4 +19,5 @@ public class Movie
     public string? OriginalLanguage { get; set; }
     public DateTime? ReleaseDate { get; set; }
     public ICollection<MovieGenre> MovieGenres { get; set; }
+    
 }

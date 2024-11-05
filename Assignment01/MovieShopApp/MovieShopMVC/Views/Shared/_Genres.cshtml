@@ -6,10 +6,11 @@
         ByGenre
     </a>
     <ul class="dropdown-menu" aria-labelledby="genreDropdown">
+        <a asp-action="Index" asp-controller="Movie" class="dropdown-item">Select All</a>
         @foreach (var genre in await GenreService.GetAllGenresAsync())
         {
             <li>
-                <a asp-action="ByGenre" asp-controller="Movie" class="dropdown-item" asp-route-id="@genre.Id">@genre.Name</a>
+                <a asp-action="ByGenre" asp-controller="Movie" class="dropdown-item" asp-route-GenreId="@genre.Id">@genre.Name</a>
             </li>
         }
     </ul>
