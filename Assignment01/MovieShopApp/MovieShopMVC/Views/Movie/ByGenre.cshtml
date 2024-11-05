@@ -1,38 +1,36 @@
 @using Microsoft.AspNetCore.Mvc.TagHelpers
-@using Microsoft.EntityFrameworkCore.Metadata.Internal
 @model Infrastructure.Models.PaginatedList<ApplicationCore.Models.ResponseModels.MovieCardResponseModel>
 
 @{
-    ViewData["Title"] = "List of Movies";
+ViewData["Title"] = "List of Movies - "; 
 }
 
-
 <div class="row">
-    <h1>@ViewData["GenreId"]</h1>
     @foreach (var movie in Model)
     {
-        <div class="col-md-3 mb-4">
-            @Html.Partial("_MovieCard", movie)
-        </div>
+    <div class="col-md-3 mb-4">
+        @Html.Partial("_MovieCard", movie) 
+    </div>
     }
 </div>
 
 <div class="pagination-container">
     @if (Model.HasPreviousPage)
     {
-        <a asp-action="Index" asp-route-pageIndex="@(Model.PageIndex - 1)" asp-route-pageSize="@Model.PageSize" class="btn btn-secondary">Previous</a>
+    <a asp-action="ByGenre" asp-route-GenreId="@ViewData["GenreId"]" asp-route-pageIndex="@(Model.PageIndex - 1)" asp-route-pageSize="@Model.PageSize" class="btn btn-secondary">Previous</a>
     }
 
     <span class="page-info">Page @Model.PageIndex of @Model.TotalPages</span>
 
     @if (Model.HasNextPage)
     {
-        <a asp-action="Index" asp-route-pageIndex="@(Model.PageIndex + 1)" asp-route-pageSize="@Model.PageSize" class="btn btn-secondary">Next</a>
+    <a asp-action="ByGenre" asp-route-GenreId="@ViewData["GenreId"]" asp-route-pageIndex="@(Model.PageIndex + 1)" asp-route-pageSize="@Model.PageSize" class="btn btn-secondary">Next</a>
     }
 
-    <form asp-action="Index" method="get" class="d-inline">
+    <form asp-action="ByGenre" method="get" class="d-inline">
         <input type="number" name="pageIndex" min="1" max="@Model.TotalPages" value="@Model.PageIndex" class="form-control d-inline" style="width: 80px;" />
         <input type="hidden" name="pageSize" value="@Model.PageSize" />
+        <input type="hidden" name="GenreId" value="@ViewData["GenreId"]" /> 
         <button type="submit" class="btn btn-primary">Go</button>
     </form>
 </div>

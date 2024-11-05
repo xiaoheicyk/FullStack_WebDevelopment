@@ -6,17 +6,18 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace MovieShopMVC.Controllers;
 
+
 public class MovieController : Controller
 {
     private readonly IMovieService _movieService;
-    private readonly IGenreService _genreService;
 
     public MovieController(IMovieService movieService)
     {
         _movieService = movieService;
-        
+
     }
     // GET
+    
     public async Task<IActionResult> Index(int pageIndex = 1, int pageSize = 40)
     {
         var movies = await _movieService.GetAllMoviesAsync();
@@ -36,6 +37,7 @@ public class MovieController : Controller
         return View(paginatedMovies);
     }
 
+    [Route("movie/[action]/{GenreId?}")]
     public async Task<IActionResult> ByGenre(int GenreId, int pageIndex = 1, int pageSize = 40)
     {
         var movies = await _movieService.GetMoviesByGenreAsync(GenreId);
