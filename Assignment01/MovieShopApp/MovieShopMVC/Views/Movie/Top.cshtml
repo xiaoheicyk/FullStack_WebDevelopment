@@ -1,19 +1,45 @@
-@model List<ApplicationCore.Models.ResponseModels.MovieCardResponseModel>
+@using Infrastructure.Models
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model PaginatedList<ApplicationCore.Models.ResponseModels.MovieCardResponseModel>
 
-<h1>Top Revenue Movies</h1>
+@{
+ViewData["Title"] = "Top "+@ViewData["top"] +" Revenue Movies";
+}
+
+<h1>@ViewData["Title"]</h1>
 
 <div class="row">
     @foreach (var movie in Model)
     {
-        <div class="col-md-3 mb-4">
-            <div class="card">
-                <img src="@movie.PosterUrl" class="card-img-top" alt="@movie.Title" />
-                <div class="card-body">
-                    <h5 class="card-title">@movie.Title</h5>
-                    <p class="card-text">Revenue: @movie.Revenue.ToString("C")</p>
-                    <a asp-action="Details" asp-route-id="@movie.Id" class="btn btn-primary">View Details</a>
-                </div>
+    <div class="col-md-3 mb-4">
+        <div class="card">
+            <img src="@movie.PosterUrl" class="card-img-top" alt="@movie.Title" />
+            <div class="card-body">
+                <h5 class="card-title">@movie.Title</h5>
+                <p class="card-text">Revenue: @movie.Revenue.ToString("C")</p>
+                <a asp-action="Details" asp-route-id="@movie.Id" class="btn btn-primary">View Details</a>
             </div>
         </div>
+    </div>
     }
+</div>
+
+<div class="pagination-container">
+    @if (Model.HasPreviousPage)
+    {
+    <a asp-action="Top" asp-route-pageIndex="@(Model.PageIndex - 1)" asp-route-pageSize="@Model.PageSize" class="btn btn-secondary">Previous</a>
+    }
+
+    <span class="page-info">Page @Model.PageIndex of @Model.TotalPages</span>
+
+    @if (Model.HasNextPage)
+    {
+    <a asp-action="Top" asp-route-pageIndex="@(Model.PageIndex + 1)" asp-route-pageSize="@Model.PageSize" class="btn btn-secondary">Next</a>
+    }
+
+    <form asp-action="Top" method="get" class="d-inline">
+        <input type="number" name="pageIndex" min="1" max="@Model.TotalPages" value="@Model.PageIndex" class="form-control d-inline" style="width: 80px;" />
+        <input type="hidden" name="pageSize" value="@Model.PageSize" />
+        <button type="submit" class="btn btn-primary">Go</button>
+    </form>
 </div>

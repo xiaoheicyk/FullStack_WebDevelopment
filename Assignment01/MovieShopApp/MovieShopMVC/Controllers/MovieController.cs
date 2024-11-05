@@ -74,10 +74,17 @@ public class MovieController : Controller
         return View(movie);
     }
 
-    public async Task<IActionResult> Top(int number = 20)
+    public async Task<IActionResult> Top(int number = 20,int pageIndex = 1, int pageSize = 40)
     {
         var movies = await _movieService.GetTopRevenueAsync(number);
-        return View(movies);
+        ViewData["top"] = number;
+        int count = movies.Count();
+        var paginatedMovies = new PaginatedList<MovieCardResponseModel>(
+            movies.Skip((pageIndex - 1) * pageSize).Take(pageSize), 
+            count, 
+            pageIndex, 
+            pageSize);
+        return View(paginatedMovies);
     }
     
 }
