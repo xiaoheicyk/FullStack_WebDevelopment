@@ -9,17 +9,6 @@
 
 <h1>@ViewData["Title"]</h1>
 
-<form asp-action="ByGenre" method="get" class="form-inline mb-4">
-    <select name="GenreId" class="form-control me-2">
-        <option value="">Select Genre</option>
-        @foreach (var genre in (IEnumerable<Genre>)ViewData["genres"])
-        {
-        <option value="@genre.Id">@genre.Name</option>
-        }
-    </select>
-    <button type="submit" class="btn btn-primary">Filter</button>
-</form>
-
 <div class="row">
     @foreach (var movie in Model)
     {
@@ -45,7 +34,7 @@
     <form asp-action="Index" method="get" class="d-inline">
         <input type="number" name="pageIndex" min="1" max="@Model.TotalPages" value="@Model.PageIndex" class="form-control d-inline" style="width: 80px;" />
         <input type="hidden" name="pageSize" value="@Model.PageSize" />
-        <input type="hidden" name="GenreId" value="@ViewData["SelectedGenreId"]" /> <!-- 传递当前选择的 GenreId -->
+        <input type="hidden" name="GenreId" value="@ViewData["SelectedGenreId"]" /> 
         <button type="submit" class="btn btn-primary">Go</button>
     </form>
 </div>

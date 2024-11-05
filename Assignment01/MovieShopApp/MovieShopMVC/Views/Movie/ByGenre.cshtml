@@ -9,16 +9,6 @@ ViewData["Title"] = "List of Movies -"+ViewData["GenreName"];
 <h1>@ViewData["Title"]</h1>
 
 
-<form asp-action="ByGenre" method="get" class="form-inline mb-4">
-    <select name="GenreId" class="form-control me-2">
-        <option value="">Select Genre</option>
-        @foreach (var genre in (IEnumerable<Genre>)ViewData["genres"])
-        {
-        <option value="@genre.Id">@genre.Name</option>
-        }
-    </select>
-    <button type="submit" class="btn btn-primary">Filter</button>
-</form>
 
 
 <div class="row">

@@ -1,8 +1,16 @@
 @using ApplicationCore.Contracts.Services
 @inject IGenreService GenreService
 
-@foreach (var genre in await GenreService.GetAllGenresAsync())
-{
-    <a asp-action="genre" asp-controller="Movies" class="dropdown-item" asp-route-id="@genre.Id"> @genre.Name</a>
-}
-}
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle text-dark" href="#" id="genreDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        ByGenre
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="genreDropdown">
+        @foreach (var genre in await GenreService.GetAllGenresAsync())
+        {
+            <li>
+                <a asp-action="ByGenre" asp-controller="Movie" class="dropdown-item" asp-route-id="@genre.Id">@genre.Name</a>
+            </li>
+        }
+    </ul>
+</li>
