@@ -73,5 +73,11 @@ public class MovieController : Controller
         var movie = await _movieService.GetMovieByIdAsync(id);
         return View(movie);
     }
+
+    public async Task<IActionResult> Top(int number = 20)
+    {
+        var movies = await _movieService.GetTopRevenueAsync(number);
+        return View(movies);
+    }
     
 }

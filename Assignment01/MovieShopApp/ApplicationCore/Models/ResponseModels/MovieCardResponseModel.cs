@@ -20,4 +20,6 @@ public class MovieCardResponseModel
     
     public DateTime? ReleaseDate { get; set; }
     
+    public long Revenue { get; set; }
+    
 }

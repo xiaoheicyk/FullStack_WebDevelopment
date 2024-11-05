@@ -1,6 +1,7 @@
 using ApplicationCore.Contracts.Repositories;
 using ApplicationCore.Contracts.Services;
 using ApplicationCore.Entities;
+using ApplicationCore.Models.ResponseModels;
 
 namespace Infrastructure.Servcies;
 
@@ -12,9 +13,18 @@ public class MovieService:IMovieService
     {
         _movieRepository = movieRepository;
     }
-    public Task<IEnumerable<Movie>> GetTopRevenueAsync(int number = 20)
+    public async Task<List<MovieCardResponseModel>> GetTopRevenueAsync(int number = 20)
     {
-        throw new NotImplementedException();
+        var topMovies = await _movieRepository.GetAllAsync(); // 假设有获取所有电影的方法
+        return topMovies.OrderByDescending(m => m.Revenue)
+            .Take(number)
+            .Select(m => new MovieCardResponseModel()
+            {
+                Id = m.Id,
+                Title = m.Title,
+                Revenue = m.Revenue,
+                PosterUrl = m.PosterUrl
+            }).ToList();
     }
 
     public Task<IEnumerable<Movie>> GetMoviesByGenreAsync(int genreId)

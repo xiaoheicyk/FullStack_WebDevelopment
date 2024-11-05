@@ -1,0 +1,19 @@
+@model List<ApplicationCore.Models.ResponseModels.MovieCardResponseModel>
+
+<h1>Top Revenue Movies</h1>
+
+<div class="row">
+    @foreach (var movie in Model)
+    {
+        <div class="col-md-3 mb-4">
+            <div class="card">
+                <img src="@movie.PosterUrl" class="card-img-top" alt="@movie.Title" />
+                <div class="card-body">
+                    <h5 class="card-title">@movie.Title</h5>
+                    <p class="card-text">Revenue: @movie.Revenue.ToString("C")</p>
+                    <a asp-action="Details" asp-route-id="@movie.Id" class="btn btn-primary">View Details</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
