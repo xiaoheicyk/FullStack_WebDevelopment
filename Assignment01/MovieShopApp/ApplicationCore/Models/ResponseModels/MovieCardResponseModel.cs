@@ -22,4 +22,5 @@ public class MovieCardResponseModel
     
     public long Revenue { get; set; }
     
+    
 }
